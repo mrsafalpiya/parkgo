@@ -1,3 +1,4 @@
+from django.db.models import Q, Count
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.models import User
@@ -58,8 +59,24 @@ def login_view(request):
 
 
 def dashboard_view(request):
+    parking_places = ParkingPlace.objects.annotate(
+        num_available_spaces=Count(
+            "parkingspace", filter=~Q(parkingspace__is_booked=True)
+        )
+    )
+
     context = {}
-    context["markers"] = json.loads(serialize("geojson", ParkingPlace.objects.all()))
+    context["markers"] = json.loads(
+        serialize(
+            "geojson",
+            parking_places,
+        )
+    )
+
+    place_spaces_count = {}
+    for place in parking_places:
+        place_spaces_count[place.id] = place.num_available_spaces
+    context["place_spaces_count"] = json.dumps(place_spaces_count)
 
     return render(request, "index.html", context)
 

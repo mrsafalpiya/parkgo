@@ -32,17 +32,26 @@
                             <div class="my-3">
                                 <div class="row">
                                     <p id="location-selected">Please select a location from above</p>
+                                    <input id="selected-location-id"
+                                           name="selected-location-id"
+                                           style="display: none" />
                                 </div>
                             </div>
                             <div class="my-3 input__icons">
                                 <div class="row">
                                     <div class="col-6">
                                         <label class="form-label">Arriving At:</label>
-                                        <input type="date" class="form-control" id="arrivingdate" />
+                                        <input type="date"
+                                               class="form-control"
+                                               id="arriving-date"
+                                               name="arriving-date" />
                                     </div>
                                     <div class="col-6">
                                         <label class="form-label">Exiting At:</label>
-                                        <input type="date" class="form-control" id="arrivingdate" />
+                                        <input type="date"
+                                               class="form-control"
+                                               id="exiting-date"
+                                               name="exiting-date" />
                                     </div>
                                 </div>
                             </div>
@@ -50,11 +59,17 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label class="form-label">Arriving Time:</label>
-                                        <input type="time" class="form-control" id="arrivingtime" />
+                                        <input type="time"
+                                               class="form-control"
+                                               id="arriving-time"
+                                               name="arriving-time" />
                                     </div>
                                     <div class="col-6">
                                         <label class="form-label">Exiting Time:</label>
-                                        <input type="time" class="form-control" id="arrivingtime" />
+                                        <input type="time"
+                                               class="form-control"
+                                               id="exiting-time"
+                                               name="exiting-time" />
                                     </div>
                                 </div>
                             </div>
@@ -83,8 +98,8 @@
                                                     <table class="table table-striped">
                                                         <thead class="text-center">
                                                             <tr class="fw-bold">
-                                                                <th>Sort By</th>
-                                                                <th>Distance</th>
+                                                                <th></th>
+                                                                <th></th>
                                                                 <th>Price</th>
                                                                 <th>Slots</th>
                                                             </tr>
@@ -92,16 +107,20 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td class="img_hold_table">
-                                                                    <img src="{% static 'image/parkingspace.png' %}" alt="" class="img-fluid" />
+                                                                    <img src="{% static 'image/parkingspace.png' %}"
+                                                                         alt=""
+                                                                         class="img-fluid"
+                                                                         id="selected-place-image" />
                                                                 </td>
                                                                 <td>
-                                                                    <p class="place_name">Trivani complex underground parking</p>
-                                                                    <p>putalisadak, kathamndu</p>
-                                                                    <p>Distance: 1.5KM</p>
+                                                                    <p class="place_name" id="selected-place-name">Trivani complex underground parking</p>
+                                                                    <p id="selected-place-location">putalisadak, kathamndu</p>
                                                                     <button class="btn">Book Now</button>
                                                                 </td>
-                                                                <td>Rs.25</td>
-                                                                <td>20</td>
+                                                                <td id="selected-place-price">Rs.25</td>
+                                                                <td>
+                                                                    <input type="number" min="1" max="20" value="1" id="slots" name="slots" />
+                                                                </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -306,4 +325,5 @@
     </section>
     <!-- Extra scripts -->
     <script>document.getElementById("address").addEventListener("input", (e) => renderMap(e.target.value));</script>
+    <script>var place_spaces_count = JSON.parse("{{ place_spaces_count|escapejs }}")</script>
 {% endblock %}

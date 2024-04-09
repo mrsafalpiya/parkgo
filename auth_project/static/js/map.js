@@ -18,23 +18,36 @@ const greenIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
+const markers = JSON.parse(document.getElementById("markers-data").textContent);
 
 // Selected location variable and handler
-let selectedLocationId = 0;
+let selectedLocationId = document.getElementById("selected-location-id");
 function selectLocation(id, location) {
-  selectedLocationId = id;
+  selectedLocationId.value = String(id);
   document.getElementById("location-selected").innerHTML =
     "Location selected: <span style='font-weight: 600'>" + location + "</span>";
   renderMap();
+
+  // Update information in the "Show parking spaces" modal
+  const selectedLocationDetails = markers.features.find(
+    (l) => l.properties.pk == id
+  ).properties;
+  document.getElementById("selected-place-image").src =
+    "/media/" + selectedLocationDetails.photo;
+  document.getElementById("selected-place-name").innerText =
+    selectedLocationDetails.parking_name;
+  document.getElementById("selected-place-location").innerText =
+    selectedLocationDetails.location_name;
+  document.getElementById(
+    "selected-place-price"
+  ).innerText = `Rs. ${selectedLocationDetails.price}`;
+  document.getElementById("slots").max = String(place_spaces_count[id]);
 }
 
 // Here the `filter` argument if is undefined, no filter will be applied.
 // Else the marker location will be filtered.
 function renderMap(filter) {
   markerGroup.clearLayers();
-  const markers = JSON.parse(
-    document.getElementById("markers-data").textContent
-  );
   if (filter != undefined && filter.trim() != "") {
     markers.features = markers.features.filter((f) =>
       `${f.properties.location_name} ${f.properties.parking_name}`
@@ -51,9 +64,9 @@ function renderMap(filter) {
   });
 
   // Make the icon of the selected marker as green (if a location is selected)
-  if (selectedLocationId != undefined) {
+  if (selectedLocationId.value != undefined) {
     for (const layer of Object.values(feature._layers)) {
-      if (layer.feature.properties.pk == selectedLocationId) {
+      if (layer.feature.properties.pk == selectedLocationId.value) {
         layer.options.icon = greenIcon;
       }
     }
