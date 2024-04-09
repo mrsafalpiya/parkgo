@@ -31,7 +31,6 @@ header nav .navbar-nav .nav-item .nav-link .btn-signup {
 main .header {
   background: url("/assets/img/banner.png");
   background-size: cover;
-  height: 90vh;
   width: 100%;
   object-fit: cover;
   overflow-x: hidden;

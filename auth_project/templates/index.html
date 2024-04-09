@@ -26,7 +26,15 @@
                                     <i class="fa fa-search icon"></i>
                                 </button>
                             </div>
-                            <div class="mb-3 input__icons">
+                            {{ markers|json_script:"markers-data" }}
+                            <div id="map"></div>
+                            <script src="{% static 'js/map.js' %}" defer></script>
+                            <div class="my-3">
+                                <div class="row">
+                                    <p id="location-selected">Please select a location from above</p>
+                                </div>
+                            </div>
+                            <div class="my-3 input__icons">
                                 <div class="row">
                                     <div class="col-6">
                                         <label class="form-label">Arriving At:</label>
@@ -296,4 +304,6 @@
     <section class="footinfo py-3">
         <h2 class="text-center text-capitalize">Save money by pre booking Online</h2>
     </section>
+    <!-- Extra scripts -->
+    <script>document.getElementById("address").addEventListener("input", (e) => renderMap(e.target.value));</script>
 {% endblock %}

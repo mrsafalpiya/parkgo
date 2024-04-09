@@ -1,0 +1,15 @@
+#map {
+  width: 100%;
+  height: 400px;
+}
+
+.map-popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map-popup p {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+}

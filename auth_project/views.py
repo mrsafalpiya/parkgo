@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Vehicle
+from .models import ParkingPlace, Vehicle
+import json
+from django.core.serializers import (
+    serialize,
+)
+
 
 # from .models import Users
 # Create your views here.
@@ -54,7 +58,10 @@ def login_view(request):
 
 
 def dashboard_view(request):
-    return render(request, "index.html")
+    context = {}
+    context["markers"] = json.loads(serialize("geojson", ParkingPlace.objects.all()))
+
+    return render(request, "index.html", context)
 
 
 def logout_view(request):
@@ -73,10 +80,6 @@ def booking_view(request):
 
 def addvehicle_view(request):
     return render(request, "addvehicle.html")
-
-
-def contact_view(request):
-    return render(request, "contact.html")
 
 
 def details_view(request):
