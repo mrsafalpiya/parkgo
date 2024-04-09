@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% block content %}
+      <section class="my__profile">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-2 col-md-4 col-12 side__bar d-md-flex d-none">
+              <ul>
+                <li><a href="{% url 'profile'%}">My Profile</a></li>
+                <li><a href="{% url 'addvehicle' %}">Add Vehicles</a></li>
+                <li><a href="{% url 'booking' %}">Bookings Made</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-10 col-md-8 col-12 mb-5">
+              <div>
+                <div class="account__info">
+                  <div class="card">
+                    <h3>Booking Information</h3>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link active"
+                          id="ongoing-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#ongoing-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="ongoing-tab-pane"
+                          aria-selected="true"
+                        >
+                          In Progress
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="upcoming-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#upcoming-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="upcoming-tab-pane"
+                          aria-selected="false"
+                        >
+                          Upcoming
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="past-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#past-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="past-tab-pane"
+                          aria-selected="false"
+                        >
+                          Past
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="booked-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#booked-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="booked-tab-pane"
+                          aria-selected="false"
+                        >
+                          Booked
+                        </button>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="ongoing-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="ongoing-tab"
+                        tabindex="0"
+                      >
+                        <div>
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                              <thead class="text-center">
+                                <tr class="fw-bold">
+                                  <th>User</th>
+                                  <th>Date</th>
+                                  <th>Time</th>
+                                  <th>Status</th>
+                                  <th>Price</th>
+                                </tr>
+                              </thead>
+                              <tbody class="text-center">
+                                <tr>
+                                  <td>username</td>
+                                  <td>2024-02-23</td>
+                                  <td>2PM - 3PM</td>
+                                  <td>Parking Ongoing</td>
+                                  <td>Rs.50</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="upcoming-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="upcoming-tab"
+                        tabindex="0"
+                      >
+                        <div class="table-responsive">
+                          <table class="table table-striped">
+                            <thead class="text-center">
+                              <tr class="fw-bold">
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                              </tr>
+                            </thead>
+                            <tbody class="text-center">
+                              <tr>
+                                <td>username</td>
+                                <td>2024-02-23</td>
+                                <td>2PM - 3PM</td>
+                                <td>Parking Ongoing</td>
+                                <td>Rs.50</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="past-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="past-tab"
+                        tabindex="0"
+                      >
+                        <div class="table-responsive">
+                          <table class="table table-striped">
+                            <thead class="text-center">
+                              <tr class="fw-bold">
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                              </tr>
+                            </thead>
+                            <tbody class="text-center">
+                              <tr>
+                                <td>username</td>
+                                <td>2024-02-23</td>
+                                <td>2PM - 3PM</td>
+                                <td>Parking Ongoing</td>
+                                <td>Rs.50</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="booked-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="booked-tab"
+                        tabindex="0"
+                      >
+                        <div class="mt-3">
+                          <p>From: <span>2 mar, 2:00pm</span></p>
+                          <p>Until: <span>2 mar, 2:00pm</span></p>
+                          <h4>Vehicle</h4>
+                          <p>Two - Wheeler, <span>780-TXN</span></p>
+                          <h4>Payment</h4>
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                              <thead class="text-center">
+                                <tr class="fw-bold">
+                                  <th>ID</th>
+                                  <th>Date</th>
+                                  <th>Time</th>
+                                  <th>Status</th>
+                                  <th>Download</th>
+                                </tr>
+                              </thead>
+                              <tbody class="text-center">
+                                <tr>
+                                  <td>userID</td>
+                                  <td>2024-02-23</td>
+                                  <td>2PM - 3PM</td>
+                                  <td>Paid</td>
+                                  <td>Receipt</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ {% endblock %}

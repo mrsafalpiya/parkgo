@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+      <section class="my__profile">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-2 col-md-4 col-12 side__bar d-md-flex d-none">
+              <ul>
+                <li><a href="{% url 'profile'%}">My Profile</a></li>
+                <li><a href="{% url 'addvehicle' %}">Add Vehicles</a></li>
+                <li><a href="{% url 'booking' %}">Bookings Made</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-10 col-md-8 col-12 mb-5">
+              {% if messages %}
+                {% for message in messages %}
+                  {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                    {{ message }}
+                    </div>
+                  {% endif %}
+                  {% endfor %}
+              {% endif %}
+             
+              <div>
+                <div class="account__info">
+                  <div class="card">
+                    <h3>Vehicle Information</h3>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link active"
+                          id="home-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#home-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="home-tab-pane"
+                          aria-selected="true"
+                        >
+                          My Vehicles
+                        </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button
+                          class="nav-link"
+                          id="profile-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#profile-tab-pane"
+                          type="button"
+                          role="tab"
+                          aria-controls="profile-tab-pane"
+                          aria-selected="false"
+                        >
+                          Add Vehicles
+                        </button>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="home-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="home-tab"
+                        tabindex="0"
+                      >  
+                      {% if vehicles %}
+                      {% for vehicle in vehicles %}
+                        <div class="row gx-3 gy-3 vehicle__info">
+                          <div class="col-md-12 col-lg-6 col-12">
+                            <div class="card mt-4">
+                              <div class="card-body">
+                                <div class="text-center">
+                                  <img src="{% static 'image/icons/car.png'%}" alt="" />
+                                  <p>Vehicle Type: {{vehicle.vehicle_type}}</p>
+                                  <p>Number plate: {{vehicle.registration_number}}</p>
+                                </div>
+                                <div class="vehicle_btns">
+                                  <div>
+                                    <a href="{% url 'updatevehicle' vehicle.id %}" class="btn btn_edit"
+                                      ><i class="fa fa-edit"></i>Edit
+                                    </a>
+                                  </div>
+                                  <div>
+                                    <a href="{% url 'deletevehicle' vehicle.id %}" class="btn btn_dlt"
+                                      ><i class="fa fa-remove"></i> Delete</a
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      {% else %}
+                      <div class="row gx-3 gy-3 vehicle__info">
+                        <div class="col-md-12 col-lg-6 col-12">
+                          <div class="card mt-4">
+                            <div class="card-body">
+                              <div class="text-center">
+                                <img src="{% static 'image/icons/car.png'%}" alt="" />
+                                <p>Car Name</p>
+                                <p>Number plate</p>
+                              </div>
+                              <div class="vehicle_btns">
+                                <div>
+                                  <a href="" class="btn btn_edit"
+                                    ><i class="fa fa-edit"></i>Edit
+                                  </a>
+                                </div>
+                                <div>
+                                  <a href="" class="btn btn_dlt"
+                                    ><i class="fa fa-remove"></i> Delete</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {% endif %}
+                        
+
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="profile-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="profile-tab"
+                        tabindex="0"
+                      >
+                        <div class="card mt-4">
+                          <form action="{% url 'addvehicle'%}" method="POST"
+                            class="form">
+                            {% csrf_token %}
+                            <div class="mb-3 row">
+                              <label
+                                for="v_type"
+                                class="col-md-12 col-lg-3 col-12 col-form-label"
+                                >Vehicle Type</label
+                              >
+                              <div class="col-md-12 col-lg-9 col-12">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  name="v_type"
+                                  placeholder="Enter Your Vehicle Type"
+                                />
+                              </div>
+                            </div>
+                            <div class="mb-3 row">
+                              <label
+                                for="reg_num"
+                                class="col-md-12 col-lg-3 col-12 col-form-label"
+                                >Registration No.</label
+                              >
+                              <div class="col-md-12 col-lg-9 col-12">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  name="reg_num"
+                                  placeholder="Enter Your Vehicle Registration Number"
+                                />
+                              </div>
+                              <div class="mb-3 btn_submit_div">
+                                <button class="btn">Submit</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ {% endblock %}

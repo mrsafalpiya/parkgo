@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <section class="header">
+        <div class="container">
+            <div class="row header__row">
+                <div class="col-12">
+                    <div class="header__intro text-center">
+                        <h1>
+                            Drive in confidence, <span>park with convenience</span>
+                        </h1>
+                        <p>
+                            seize your spot instantly; book your desired parking space
+                            anytime, anywhere!
+                        </p>
+                    </div>
+                    <div class="form">
+                        <h6 class="form__intro">Select your date and time</h6>
+                        <form class="search__form">
+                            <div class="mb-3 input__icons">
+                                <input type="text"
+                                       class="form-control mt-4"
+                                       id="address"
+                                       placeholder="Search address or place" />
+                                <button>
+                                    <i class="fa fa-search icon"></i>
+                                </button>
+                            </div>
+                            <div class="mb-3 input__icons">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="form-label">Arriving At:</label>
+                                        <input type="date" class="form-control" id="arrivingdate" />
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">Exiting At:</label>
+                                        <input type="date" class="form-control" id="arrivingdate" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 input__icons">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="form-label">Arriving Time:</label>
+                                        <input type="time" class="form-control" id="arrivingtime" />
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label">Exiting Time:</label>
+                                        <input type="time" class="form-control" id="arrivingtime" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <button type="button"
+                                        id="btn_showpark"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Show parking spaces</button>
+                                <!-- Modal -->
+                                <div class="modal fade"
+                                     id="exampleModal"
+                                     tabindex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Parking Spaces</h1>
+                                                <button type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead class="text-center">
+                                                            <tr class="fw-bold">
+                                                                <th>Sort By</th>
+                                                                <th>Distance</th>
+                                                                <th>Price</th>
+                                                                <th>Slots</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="img_hold_table">
+                                                                    <img src="{% static 'image/parkingspace.png' %}" alt="" class="img-fluid" />
+                                                                </td>
+                                                                <td>
+                                                                    <p class="place_name">Trivani complex underground parking</p>
+                                                                    <p>putalisadak, kathamndu</p>
+                                                                    <p>Distance: 1.5KM</p>
+                                                                    <button class="btn">Book Now</button>
+                                                                </td>
+                                                                <td>Rs.25</td>
+                                                                <td>20</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="why_choose">
+        <div class="container">
+            <h2 class="section__header text-center">Parking is now a lot easier!</h2>
+            <div class="row choose_row gx-5 gy-3">
+                <div class="col-md-6 col-lg-4 col-12">
+                    <div class="icon_preholder">
+                        <div class="icon_holder text-center">
+                            <img src="{% static 'image/icons/stress-relief.png' %}"
+                                 alt="stress free icon"
+                                 class="c_icon img-fluid" />
+                        </div>
+                    </div>
+                    <div class="card mt-3 card_clr">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Stress Free</h4>
+                            <p class="card-text">
+                                Embrace a stress-free journey with us, where worries
+                                dissolve and tranquility reigns. Experience peace as we
+                                navigate you to hassle-free solutions effortlessly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12">
+                    <div class="icon_preholder icon_clr">
+                        <div class="icon_holder text-center">
+                            <img src="{% static 'image/icons/back-in-time.png' %}"
+                                 alt="save time icon"
+                                 class="c_icon img-fluid" />
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Save Time</h4>
+                            <p class="card-text">
+                                Save time effortlessly. Unlock a world where every second
+                                counts towards what truly matters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-12">
+                    <div class="icon_preholder">
+                        <div class="icon_holder text-center">
+                            <img src="{% static 'image/icons/asset.png' %}"
+                                 alt="secure saving icon"
+                                 class="c_icon img-fluid" />
+                        </div>
+                    </div>
+                    <div class="card mt-3 card_clr">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Secure Savings</h4>
+                            <p class="card-text">
+                                Entrust your financial security to unwavering confidence and
+                                precision, finding peace in the assurance that your money is
+                                secure and well-cared-for.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="works">
+        <div class="container">
+            <div class="row gx-5 gy-3">
+                <div class="col-md-6 col-lg-6 col-12 work_col_one">
+                    <h2 class="section__header">How it works?</h2>
+                    <p>
+                        ParkGo streamlines the parking process, making it quick,
+                        convenient, and stress-free for users. Here are some simple
+                        steps to book you desired spot are:
+                    </p>
+                    <p>
+                        <span>Enter Destination:</span> Simply input your desired
+                        destination into the ParkGo app or website.
+                    </p>
+                    <p>
+                        <span>Set Time and Date:</span> Choose the date and time you
+                        plan to arrive at your destination.
+                    </p>
+                    <p>
+                        <span>Select Vehicle:</span>Specify whether you'll be parking
+                        a car, motorcycle, or any other vehicle.
+                    </p>
+                    <p>
+                        <span>Pay & Go:</span> Pay for your parking reservation securely
+                        through the ParkGo platform. Once your reservation is confirmed,
+                        you're all set to go! Drive to your destination and park in your
+                        reserved spot hassle-free.
+                    </p>
+                    <a href="" class="btn btn_learn">Learn how it works &rarr;</a>
+                </div>
+                <div class="col-md-6 col-lg-6 col-12 work_col-two">
+                    <img src="{% static 'image/work1.png' %}"
+                         alt="how it works image"
+                         class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="navi">
+        <div class="container">
+            <div class="row gx-5 gy-3">
+                <div class="col-md-6 col-lg-6 col-12 navi_col_one">
+                    <img src="{% static 'image/navi.png' %}" alt="" class="img-fluid" />
+                </div>
+                <div class="col-md-6 col-lg-6 col-12 navi_col_two">
+                    <h2 class="section__header">
+                        Experience Effortless
+                        <br />
+                        <span>Navigation</span>
+                    </h2>
+                    <p>
+                        Seamlessly manage bookings through our intuitive platform.
+                        Navigate the city stress-free with ParkGo's secure and
+                        convenient parking solutions. Discover parking everywhere,
+                        whether it's now or scheduled for later. Compare rates & select
+                        the spot that suits you best.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial">
+        <div class="container">
+            <h2 class="section__header text-center">What Our Client says?</h2>
+            <div class="owl-theme owl-carousel mt-4">
+                <div class="item">
+                    <div class="card" style="max-width: 540px">
+                        <div class="card-body">
+                            <p class="card-text">
+                                ParkGo has transformed my city experience, saving me time
+                                and eliminating the stress of finding a spot. With
+                                user-friendly features and real-time updates, I can now
+                                navigate effortlessly and confidently, knowing my parking
+                                space is secured.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="img_holder">
+                                        <img src="{% static 'image/icons/man.png' %}" alt="" class="img-fluid" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <h6>Jenny Wilson</h6>
+                                    <p>CEO of Workcation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card" style="max-width: 540px">
+                        <div class="card-body">
+                            <p class="card-text">
+                                ParkGo has transformed my city experience, saving me time
+                                and eliminating the stress of finding a spot. With
+                                user-friendly features and real-time updates, I can now
+                                navigate effortlessly and confidently, knowing my parking
+                                space is secured. Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Nemo, ea?
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="img_holder">
+                                        <img src="{% static 'image/icons/man.png' %}" alt="" class="img-fluid" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <h6>John Cena</h6>
+                                    <p>CEO of Workcation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footinfo py-3">
+        <h2 class="text-center text-capitalize">Save money by pre booking Online</h2>
+    </section>
+{% endblock %}

@@ -1,0 +1,688 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+header nav .container-fluid .navbar-brand img {
+  height: 65px;
+  width: 65px;
+  object-fit: cover;
+}
+
+header nav .navbar-nav .nav-item .nav-link button {
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  transition: all 60ms linear;
+  text-transform: uppercase;
+  box-shadow: -2px 2px 2px 1px rgba(23, 37, 167, 0.568);
+}
+header nav .navbar-nav .nav-item .nav-link button:hover {
+  transform: scale(1.05);
+}
+header nav .navbar-nav .nav-item .nav-link .btn-signup {
+  box-shadow: -2px 2px 2px 1px rgba(23, 37, 167, 0.568);
+}
+
+/* Section header Css */
+
+main .header {
+  background: url("/assets/img/banner.png");
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
+  object-fit: cover;
+  overflow-x: hidden;
+}
+
+main .header__intro {
+  margin-top: 60px;
+}
+main .header .header__intro h1 {
+  color: #fff;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 36px;
+}
+main .header .header__intro h1 span {
+  color: #5f5d9c;
+}
+
+.header .header__intro p {
+  font-size: 18px;
+  color: #5f5d9c;
+  font-weight: 600;
+  font-style: italic;
+  text-transform: capitalize;
+}
+.header .form {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 20px 25px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.header .form .form__intro {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.header .form form .form-control {
+  box-shadow: 0px 0px 1px 1px #555;
+  width: 100%;
+  padding: 10px;
+}
+.header .search__form .input__icons {
+  position: relative;
+}
+.header .search__form .input__icons button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50px;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+.header .search__form .input__icons button .icon {
+  color: #ff7676;
+}
+.header .search__form #btn_showpark {
+  text-align: center;
+  background-color: #5f5d9c;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+
+.header
+  .search__form
+  .modal
+  .modal-dialog
+  .modal-body
+  table
+  .img_hold_table
+  img {
+  height: 100px;
+  width: 200px;
+  object-fit: cover;
+}
+.header .search__form .modal .modal-dialog .modal-body table .place_name {
+  font-weight: bold;
+  font-size: 15px;
+}
+.header .search__form .modal .modal-dialog .modal-body table p {
+  color: #555;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+.header .search__form .modal .modal-dialog .modal-body table .btn {
+  color: #fff;
+  background-color: #5f5d9c;
+}
+main .why_choose {
+  padding: 60px 0px;
+  overflow-x: hidden;
+}
+main .why_choose .section__header {
+  font-size: 32px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.choose_row {
+  margin-top: 20px;
+}
+.choose_row .icon_preholder {
+  border: none;
+  height: 140px;
+  width: 140px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.choose_row .icon_clr {
+  background-color: #5f5d9c21;
+}
+.choose_row .icon_holder {
+  height: 140px;
+  width: 140px;
+}
+.choose_row .icon_holder img {
+  height: 50%;
+  width: 50%;
+  margin: 28px;
+}
+.choose_row .card {
+  padding: 10px;
+  border-radius: 40px;
+  height: 200px;
+  width: 100%;
+  box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.choose_row .card_clr {
+  background-color: #5f5d9c9f;
+}
+.choose_row .card .card-text {
+  text-align: justify;
+}
+
+/*works section css */
+main .works {
+  padding: 60px 0;
+  background-color: #f7f7f7;
+  overflow-x: hidden;
+}
+.works .row .work_col-two img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.works .section__header {
+  color: #5f5d9c;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.works .row .work_col_one p {
+  font-size: 16px;
+  color: #555;
+  text-align: justify;
+}
+.works .row .work_col_one p span {
+  color: #000;
+  font-weight: bold;
+}
+.works .row .work_col_one .btn_learn {
+  background-color: #5f5d9c;
+  padding: 10px 16px;
+  font-weight: 600;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+main .navi {
+  padding: 60px 0;
+  overflow-x: hidden;
+}
+
+main .navi .section__header {
+  color: #5f5d9c;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+main .navi .section__header span {
+  color: #a06262;
+}
+main .navi .navi_col_two p {
+  margin-top: 20px;
+  color: #555;
+  text-align: justify;
+}
+main .navi .navi_col_one img {
+  border-radius: 10px;
+}
+main .testimonial {
+  padding: 60px 0;
+  background: url("/assets/img/backdrop.png");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  object-fit: cover;
+  box-shadow: inset 20px 20px 500px 300px rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
+}
+main .testimonial .section__header {
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: capitalize;
+}
+main .testimonial .card {
+  height: 300px;
+  padding: 10px;
+  background-color: #6561da;
+}
+main .testimonial .card .card-footer {
+  border-top: none;
+}
+main .testimonial .card .card-text {
+  text-align: justify;
+}
+main .testimonial .card .card-footer .img_holder {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 1px solid black;
+  outline: none;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  background-color: #fff;
+}
+main .testimonial .card .card-footer .img_holder img {
+  height: 80%;
+  width: 80%;
+  margin: 9px;
+}
+main .testimonial .card .card-footer .row .col-8 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+footer {
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  padding: 60px 0 10px 0;
+}
+
+footer .hrOne {
+  border-top: 3px solid #5f5d9c;
+}
+footer p a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 0px 10px;
+}
+
+footer .footer_link h2 {
+  color: #fff;
+  font-weight: 500;
+}
+footer .footer_link h2 span {
+  font-weight: bold;
+}
+
+footer .footer_link,
+footer .social__info {
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer_links,
+footer .social__links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+footer .social__info {
+  margin-top: 60px;
+}
+footer .social__info h6 {
+  color: #555;
+}
+
+/*terms page css */
+header .navbar .navbar-nav .dropdown {
+  font-weight: bold;
+}
+main .breadcrumb {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 35vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #5f5d9c;
+}
+main .breadcrumb .hero__banner {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+main .breadcrumb .hero__banner .head__name,
+main .breadcrumb .hero__banner .head__name a {
+  font-size: 24px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #fff;
+
+  text-decoration: none;
+}
+main {
+  background-color: #ede5e5;
+}
+main .terms,
+main .about__us,
+main .page__work,
+main .signin {
+  padding: 60px 0;
+}
+
+main .about__us p {
+  text-align: justify;
+}
+.terms .card {
+  padding: 40px;
+}
+.terms .card p {
+  text-align: justify;
+  color: #333;
+}
+.terms .card ol li {
+  line-height: 32px;
+  text-align: justify;
+  color: #555;
+}
+main .page__work .work__header h3 {
+  font-size: 36px;
+  font-weight: bolder;
+}
+main .page__work .card {
+  height: 320px;
+  width: 150px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #5f5d9c;
+}
+main .page__work .card h2 {
+  font-size: 60px;
+  font-weight: bolder;
+}
+main .page__work .card p {
+  font-weight: bold;
+  font-size: 16px;
+}
+main .page__work .page_row {
+  margin-top: 20px;
+}
+
+main .signin .card {
+  padding: 60px;
+  width: 80%;
+  margin: 0 auto;
+  height: max-content;
+}
+main .signin .card .form form p a {
+  color: #5f5d9c;
+}
+main .signin .card .form form label {
+  font-weight: 600;
+}
+main .signin .card .form form .form_btns,
+main .my__profile .form .form_btns {
+  display: flex;
+  justify-content: space-between;
+}
+main .signin .card .form form .form_btns .btn_reset,
+main .signin .card .form form .form_btns .update_account_btn {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #5f5d9c;
+}
+main .signin .card .form form .btn_submit,
+main .my__profile .form .form_btns .btn_reset {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  background-color: #5f5d9c;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+main .signin .card .form .P_signin {
+  font-weight: 500;
+}
+main .signin .card .form .P_signin a {
+  text-decoration: none;
+}
+
+main .my__profile .side__bar {
+  background-color: #fff;
+  height: 100vh;
+}
+main .my__profile .side__bar ul {
+  list-style: none;
+  font-size: 20px;
+  margin-top: 30px;
+}
+main .my__profile .side__bar ul li {
+  padding: 20px 0 20px 0;
+}
+main .my__profile .side__bar ul li a {
+  color: #000;
+  text-decoration: none;
+  margin: 20px 0px 20px 0px;
+  font-weight: 600;
+}
+main .my__profile .account__info {
+  margin-top: 50px;
+}
+main .my__profile .account__info .form,
+main .my__profile .account__info .card {
+  width: 80%;
+  margin: 0 auto;
+}
+main .my__profile .account__info .card {
+  padding: 20px;
+}
+main .my__profile .account__info .form label {
+  font-weight: 600;
+}
+main .my__profile .account__info .form .dlt_area .btn {
+  width: 100%;
+  margin: 20px 0px;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+}
+
+main .my__profile .account__info .card .vehicle__info .vehicle_btns {
+  display: flex;
+  justify-content: space-between;
+}
+main .my__profile .account__info .card .vehicle__info .vehicle_btns .btn_edit {
+  background-color: green;
+  padding: 10px 20px;
+  color: #fff;
+}
+main .my__profile .account__info .card .vehicle__info .vehicle_btns .btn_dlt {
+  background-color: red;
+  padding: 10px 20px;
+  color: #fff;
+}
+main .my__profile .account__info .card .form .btn_submit_div .btn {
+  background-color: #5f5d9c;
+  padding: 10px 20px;
+  color: #fff;
+
+  margin-top: 10px;
+}
+
+main .details__page {
+  padding: 60px 0;
+}
+
+.details__page .right_row .card .parkingspace_img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.details__page .right_row .card .parking_space_info .parkingspace_name {
+  font-weight: bold;
+}
+.details__page .right_row .card .parking_space_info .parking_space_location {
+  color: #555;
+  font-size: 16px;
+}
+.details__page .right_row .card .parking_space_details h6 {
+  font-weight: bolder;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.details__page .right_row .card .parking_space_details .space_details {
+  color: #555;
+  text-align: justify;
+  font-size: 14px;
+}
+.details__page .right_row .card .parking_space_details .dotted_hr {
+  border-top: 4px dotted black;
+}
+
+.details__page .right_row .card .parking_space_details .qr_area {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: justify;
+}
+.details__page .left_row .card {
+  padding: 10px;
+}
+.details__page .left_row .card .card-title {
+  font-weight: 600;
+}
+
+.details__page .left_row .card .info_park {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.details__page .left_row .card .info_park p:nth-child(2) {
+  font-weight: 600;
+}
+.details__page .left_row .vehicle_opt .card form label {
+  display: flex;
+}
+.details__page .left_row .vehicle_opt .card form label p {
+  margin-left: 20px;
+  font-weight: 600;
+}
+.details__page .left_row .total_pay,
+.details__page .left_row .order_btns {
+  display: flex;
+  justify-content: space-between;
+}
+.details__page .left_row .total_pay p {
+  font-weight: bold;
+  font-size: 18px;
+  color: #5f5d9c;
+}
+.details__page .left_row .order_btns .btn {
+  padding: 10px 20px;
+  color: #fff;
+}
+.details__page .left_row .order_btns .btn_cancel {
+  background-color: red;
+}
+.details__page .left_row .order_btns .btn_complete {
+  background-color: green;
+}
+main .payment__page {
+  padding: 60px 0;
+}
+main .payment__page .card .payment_method .card {
+  height: 240px;
+  width: 100%;
+  box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+}
+main .payment__page .card .payment_method img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  padding: 30px;
+}
+
+main .payment__page .card .term_con {
+  margin-top: 30px;
+}
+main .payment__page .card .term_con p {
+  color: #000;
+  font-weight: 500;
+}
+main .payment__page .card .term_con p:nth-child(3) {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+/* media query */
+
+@media (max-width: 767px) {
+  .header .form {
+    width: 100%;
+  }
+  main .testimonial .card {
+    height: max-content;
+    padding: 10px;
+  }
+  footer .footer_link {
+    display: block;
+  }
+  footer .footer_links {
+    display: block;
+  }
+  .terms .card {
+    padding: 10px;
+  }
+  main .page__work .card {
+    height: 320px;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #5f5d9c;
+  }
+  main .signin .card {
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  main .signin .card .form .P_signin {
+    text-align: center;
+  }
+  main .my__profile .side__bar {
+    background-color: #fff;
+    height: 100%;
+  }
+  main .my__profile .form .form_btns {
+    display: block;
+  }
+  main .my__profile .form .form_btns .update_account_btn {
+    margin-top: 20px;
+  }
+
+  main .my__profile .account__info .card {
+    width: 100%;
+    margin: 0 auto;
+  }
+  main .header {
+    background: url("/assets/img/banner.png");
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    overflow-x: hidden;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  main .header {
+    height: 55vh;
+  }
+  main .testimonial .card {
+    height: 360px;
+    padding: 5px;
+  }
+}
