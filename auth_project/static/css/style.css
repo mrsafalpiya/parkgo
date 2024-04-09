@@ -129,6 +129,20 @@ main .header .header__intro h1 span {
   color: #fff;
   background-color: #5f5d9c;
 }
+.header
+  .search__form
+  .modal
+  .modal-dialog
+  .modal-body
+  table
+  .total-price-label {
+  margin-top: 28px;
+  margin-bottom: 0px;
+}
+.header .search__form .modal .modal-dialog .modal-body table .total-price {
+  font-size: 18px;
+  font-weight: 700;
+}
 main .why_choose {
   padding: 60px 0px;
   overflow-x: hidden;

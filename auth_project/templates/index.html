@@ -16,7 +16,7 @@
                     </div>
                     <div class="form">
                         <h6 class="form__intro">Select your date and time</h6>
-                        <form class="search__form">
+                        <form class="search__form" method="POST">
                             <div class="mb-3 input__icons">
                                 <input type="text"
                                        class="form-control mt-4"
@@ -75,6 +75,7 @@
                             </div>
                             <div class="mb-3">
                                 <button type="button"
+                                        disabled
                                         id="btn_showpark"
                                         data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">Show parking spaces</button>
@@ -117,9 +118,17 @@
                                                                     <p id="selected-place-location">putalisadak, kathamndu</p>
                                                                     <button class="btn">Book Now</button>
                                                                 </td>
-                                                                <td id="selected-place-price">Rs.25</td>
+                                                                <td id="selected-place-price">Rs. 25</td>
                                                                 <td>
-                                                                    <input type="number" min="1" max="20" value="1" id="slots" name="slots" />
+                                                                    <input type="number"
+                                                                           min="1"
+                                                                           max="20"
+                                                                           value="1"
+                                                                           id="slots"
+                                                                           name="slots"
+                                                                           style="padding-left: 8px" />
+                                                                    <p class="total-price-label">Total</p>
+                                                                    <p class="total-price" id="total-price">Rs. 25</p>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -326,4 +335,10 @@
     <!-- Extra scripts -->
     <script>document.getElementById("address").addEventListener("input", (e) => renderMap(e.target.value));</script>
     <script>var place_spaces_count = JSON.parse("{{ place_spaces_count|escapejs }}")</script>
+    <script>
+    document.getElementById("slots").addEventListener("input", recalculateTotalPrice);
+    function recalculateTotalPrice(e) {
+        document.getElementById("total-price").innerHTML = `Rs. ${(parseInt(document.getElementById("selected-place-price").innerHTML.slice(3)) * parseInt(e.target.value)).toFixed(2)}`;
+    }
+    </script>
 {% endblock %}

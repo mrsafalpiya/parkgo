@@ -18,6 +18,9 @@ const greenIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
+const origMarkers = JSON.parse(
+  document.getElementById("markers-data").textContent
+);
 const markers = JSON.parse(document.getElementById("markers-data").textContent);
 
 // Selected location variable and handler
@@ -41,7 +44,14 @@ function selectLocation(id, location) {
   document.getElementById(
     "selected-place-price"
   ).innerText = `Rs. ${selectedLocationDetails.price}`;
+  document.getElementById("slots").value = "1";
   document.getElementById("slots").max = String(place_spaces_count[id]);
+  document.getElementById(
+    "total-price"
+  ).innerText = `Rs. ${selectedLocationDetails.price}`;
+
+  // Enable the "Show parking spaces" button
+  document.getElementById("btn_showpark").disabled = false;
 }
 
 // Here the `filter` argument if is undefined, no filter will be applied.
@@ -49,7 +59,7 @@ function selectLocation(id, location) {
 function renderMap(filter) {
   markerGroup.clearLayers();
   if (filter != undefined && filter.trim() != "") {
-    markers.features = markers.features.filter((f) =>
+    markers.features = origMarkers.features.filter((f) =>
       `${f.properties.location_name} ${f.properties.parking_name}`
         .toLowerCase()
         .includes(filter.toLowerCase())
