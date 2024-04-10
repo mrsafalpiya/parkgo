@@ -1,15 +1,18 @@
 from django.db.models import Q, Count
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import ParkingPlace, Vehicle
+from .models import ParkingBooking, ParkingPlace, ParkingSpace, Vehicle
 import json
 from django.core.serializers import (
     serialize,
 )
-
+from django.views.decorators.csrf import csrf_exempt
+from datetime import datetime
+from django.utils import timezone
 
 # from .models import Users
 # Create your views here.
@@ -91,8 +94,30 @@ def about_view(request):
     return render(request, "about.html")
 
 
+def get_datetime_status(start_datetime, end_datetime):
+    current_datetime = timezone.now()
+
+    if current_datetime < start_datetime:
+        return "upcoming"
+    elif start_datetime <= current_datetime <= end_datetime:
+        return "in-progress"
+    else:
+        return "past"
+
+
 def booking_view(request):
-    return render(request, "booking.html")
+    user_vehicles = Vehicle.objects.filter(user=request.user)
+
+    context = {}
+    bookings = ParkingBooking.objects.filter(vehicle__in=user_vehicles)
+    for booking in bookings:
+        status = get_datetime_status(booking.arriving_at, booking.exiting_at)
+        if status in context:
+            context[status].append(booking)
+        else:
+            context[status] = [booking]
+
+    return render(request, "booking.html", context)
 
 
 def addvehicle_view(request):
@@ -195,3 +220,83 @@ def updatevehicle(request, vehicle_id):
         messages.success(request, "Vehicle updated successfully!")
         return redirect("addvehicle")
     return render(request, "updatevehicle.html", {"vehicle": vehicle})
+
+
+@login_required(login_url="login")
+def payment(request):
+    if request.method == "GET":
+        selected_location_id = request.GET.get("selected-location-id")
+        arriving_date = request.GET.get("arriving-date")
+        exiting_date = request.GET.get("exiting-date")
+        arriving_time = request.GET.get("arriving-time")
+        exiting_time = request.GET.get("exiting-time")
+        slots = request.GET.get("slots")
+
+        location_info = ParkingPlace.objects.get(id=selected_location_id)
+        user_vehicles = Vehicle.objects.filter(user=request.user)
+
+        return render(
+            request,
+            "payment.html",
+            {
+                "location_info": location_info,
+                "arriving_date": arriving_date,
+                "exiting_date": exiting_date,
+                "arriving_time": arriving_time,
+                "exiting_time": exiting_time,
+                "slots": slots,
+                "total_cost": int(slots) * location_info.price,
+                "user_vehicles": user_vehicles,
+            },
+        )
+    else:
+        selected_location_id = int(request.POST.get("selected-location-id"))
+        arriving_date = request.POST.get("arriving-date")
+        arriving_time = request.POST.get("arriving-time")
+        exiting_date = request.POST.get("exiting-date")
+        exiting_time = request.POST.get("exiting-time")
+        slots = int(request.POST.get("slots"))
+        vehicle = int(request.POST.get("vehicle"))
+
+        # Create a new booking entry
+        place = ParkingPlace.objects.get(id=selected_location_id)
+        spaces = ParkingSpace.objects.filter(is_booked=False)[:slots]
+        user_vehicle = Vehicle.objects.get(id=vehicle)
+
+        for space in spaces:
+            ParkingBooking(
+                place=place,
+                space=space,
+                vehicle=user_vehicle,
+                arriving_at=datetime.strptime(
+                    f"{arriving_date} {arriving_time}", "%Y-%m-%d %H:%M"
+                ),
+                exiting_at=datetime.strptime(
+                    f"{exiting_date} {exiting_time}", "%Y-%m-%d %H:%M"
+                ),
+                to_wash=False,
+            ).save()
+            space.is_booked = True
+            space.save()
+
+    return redirect("/booking")
+
+
+@csrf_exempt
+def add_user_vehicle(request):
+    json_data = json.loads(request.body)
+
+    vehicle_type = json_data["type"]
+    registration_number = json_data["registrationNumber"]
+    userId = int(json_data["userId"])
+
+    user = User.objects.get(id=userId)
+
+    new_vehicle = Vehicle(
+        user=user,
+        vehicle_type=f"{vehicle_type} wheeler",
+        registration_number=registration_number,
+    )
+    new_vehicle.save()
+
+    return JsonResponse({"success": True})

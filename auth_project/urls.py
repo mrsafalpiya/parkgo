@@ -17,4 +17,6 @@ urlpatterns = [
     path("addvehicle/", views.addvehicle, name="addvehicle"),
     path("deletevehicle/<int:vehicle_id>", views.deletevehicle, name="deletevehicle"),
     path("updatevehicle/<int:vehicle_id>", views.updatevehicle, name="updatevehicle"),
+    path("payment", views.payment, name="payment"),
+    path("add-vehicle", views.add_user_vehicle, name="payment"),
 ]

@@ -58,7 +58,9 @@ function selectLocation(id, location) {
 // Else the marker location will be filtered.
 function renderMap(filter) {
   markerGroup.clearLayers();
-  if (filter != undefined && filter.trim() != "") {
+  if (filter == undefined || filter.trim() == "") {
+    markers.features = origMarkers.features;
+  } else {
     markers.features = origMarkers.features.filter((f) =>
       `${f.properties.location_name} ${f.properties.parking_name}`
         .toLowerCase()

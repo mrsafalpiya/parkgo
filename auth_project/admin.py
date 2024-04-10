@@ -3,7 +3,7 @@ from django.forms import ModelForm, IntegerField
 import itertools
 
 # Register your models here.
-from .models import ParkingPlace, Vehicle, ParkingSpace
+from .models import ParkingBooking, ParkingPlace, Vehicle, ParkingSpace
 
 
 class VehicleAdmin(admin.ModelAdmin):
@@ -11,6 +11,7 @@ class VehicleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ParkingSpace)
+admin.site.register(ParkingBooking)
 
 admin.site.register(Vehicle, VehicleAdmin)
 

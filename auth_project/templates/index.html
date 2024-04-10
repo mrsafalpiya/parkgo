@@ -16,7 +16,8 @@
                     </div>
                     <div class="form">
                         <h6 class="form__intro">Select your date and time</h6>
-                        <form class="search__form" method="POST">
+                        <form class="search__form" method="GET" action="/payment">
+                            {% csrf_token %}
                             <div class="mb-3 input__icons">
                                 <input type="text"
                                        class="form-control mt-4"

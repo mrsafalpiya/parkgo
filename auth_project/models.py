@@ -53,12 +53,13 @@ class ParkingSpace(models.Model):
     is_booked = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.place} - #{self.pk}"
+        return f"{self.place.parking_name} - #{self.pk}"
 
 
 class ParkingBooking(models.Model):
     place = models.ForeignKey(ParkingPlace, on_delete=models.CASCADE)
     space = models.ForeignKey(ParkingSpace, on_delete=models.CASCADE)
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 
     arriving_at = models.DateTimeField()
     exiting_at = models.DateTimeField()
