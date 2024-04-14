@@ -1,162 +1,145 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
-      <section class="details__page">
+    {% load static %}
+    <section class="details__page">
         <div class="container">
-          <div class="row gx-3 gy-3 left_row">
-            <div class="col-lg-6 col-12">
-              <h4>Complete your parking reservation and pay</h4>
-              <div class="card mb-4">
-                <div class="card-body">
-                  <p class="card-title">Booking 1 Details</p>
-                  <div class="info_park">
-                    <p>Arriving On</p>
-                    <p>Thur, Mar 8 | 2:00 pm</p>
-                  </div>
-                  <div class="info_park">
-                    <p>Leaving On</p>
-                    <p>Thur, Mar 8 | 3:00 pm</p>
-                  </div>
-                  <div class="info_park">
-                    <p>Duration</p>
-                    <p>1 Hours</p>
-                  </div>
+            <div class="row gx-3 gy-3 left_row">
+                <div class="col-lg-6 col-12">
+                    <h4>Complete your parking reservation and pay</h4>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-title">Booking 1 Details</p>
+                            <div class="info_park">
+                                <p>Arriving On</p>
+                                <p>Thur, Mar 8 | 2:00 pm</p>
+                            </div>
+                            <div class="info_park">
+                                <p>Leaving On</p>
+                                <p>Thur, Mar 8 | 3:00 pm</p>
+                            </div>
+                            <div class="info_park">
+                                <p>Duration</p>
+                                <p>1 Hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-title">Booking 2 Details</p>
+                            <div class="info_park">
+                                <p>Arriving On</p>
+                                <p>Thur, Mar 8 | 2:00 pm</p>
+                            </div>
+                            <div class="info_park">
+                                <p>Leaving On</p>
+                                <p>Thur, Mar 8 | 3:00 pm</p>
+                            </div>
+                            <div class="info_park">
+                                <p>Duration</p>
+                                <p>1 Hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vehicle_opt">
+                        <h6>Vehicle Type and Wash</h6>
+                        <div class="card">
+                            <div class="card-body">
+                                <form action=" ">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="veh_info" id="veh_info1" />
+                                        <label class="form-check-label" for="veh_info1">
+                                            <i class="fa fa-biking"></i>
+                                            <p>Two - Wheeler</p>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="veh_info"
+                                               id="veh_info2"
+                                               checked />
+                                        <label class="form-check-label" for="veh_info2">
+                                            <i class="fa fa-cab"></i>
+                                            <p>Four - Wheeler</p>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" />
+                                        <label class="form-check-label" for="veh_info2">
+                                            <i class="fa fa-hands-wash"></i>
+                                            <p>Do wash for the vehicle.</p>
+                                        </label>
+                                        <small class="text-danger">Cost for Vehicle wash will be charged
+                                        additionaly.</small>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4>Your Payment Summary</h4>
+                        <p>Half an hour - Rs.25</p>
+                        <p>Per hour - Rs.50</p>
+                        <div class="total_pay">
+                            <h6>Your Total Order</h6>
+                            <p>Rs.50/hour</p>
+                        </div>
+                        <div class="order_btns">
+                            <div>
+                                <a href="" class="btn btn_cancel">Cancel</a>
+                            </div>
+                            <div>
+                                <a href="" class="btn btn_complete">Complete Order</a>
+                            </div>
+                        </div>
+                        <p class="mt-2">
+                            By purchasing, you accept our <a href="">terms & policy</a>.
+                        </p>
+                    </div>
                 </div>
-              </div>
-              <div class="card mb-4">
-                <div class="card-body">
-                  <p class="card-title">Booking 2 Details</p>
-                  <div class="info_park">
-                    <p>Arriving On</p>
-                    <p>Thur, Mar 8 | 2:00 pm</p>
-                  </div>
-                  <div class="info_park">
-                    <p>Leaving On</p>
-                    <p>Thur, Mar 8 | 3:00 pm</p>
-                  </div>
-                  <div class="info_park">
-                    <p>Duration</p>
-                    <p>1 Hours</p>
-                  </div>
+                <div class="col-lg-6 col-12 right_row">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{% static 'image/parkingspace.png' %}"
+                                 alt=""
+                                 class="img-fluid parkingspace_img" />
+                            <div class="parking_space_info mt-4">
+                                <h5 class="parkingspace_name">Triveni Underground Complex Parking</h5>
+                                <p class="parking_space_location">Putalisadak Road, Kathmandu</p>
+                            </div>
+                            <div class="parking_space_details">
+                                <h6>Details About Parking Spot</h6>
+                                <p class="space_details">
+                                    Triveni Parking Spot stands out as an expansive indoor
+                                    facility designed to accommodate a substantial number of
+                                    vehicles, catering to both two-wheelers and four-wheelers
+                                    alike. With a staggering capacity of up to 400 parking
+                                    slots, Triveni Parking Spot ensures ample space for a
+                                    diverse range of vehicles, making it a convenient and
+                                    secure choice for urban commuters. This state-of-the-art
+                                    facility prioritizes user convenience and safety, offering
+                                    a well-organized layout and advanced security measures to
+                                    safeguard parked vehicles. Located at a prime location,
+                                    Triveni Parking Spot is easily accessible, providing a
+                                    seamless parking experience for individuals looking to
+                                    park their vehicles with ease. Whether you're a daily
+                                    commuter or an occasional visitor, Triveni Parking Spot
+                                    offers a reliable solution for your parking needs,
+                                    ensuring that your vehicle is not just parked but is also
+                                    well-protected within this spacious and well-maintained
+                                    indoor parking space.
+                                </p>
+                                <hr class="dotted_hr" />
+                                <p class="qr_area">
+                                    After purchasing, you will receive a personalized QR code.
+                                    Simply scan your QR code at the designated entrance, and
+                                    you're all set to park your vehicle with ease.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="vehicle_opt">
-                <h6>Vehicle Type and Wash</h6>
-                <div class="card">
-                  <div class="card-body">
-                    <form
-                      action="
-                    "
-                    >
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="veh_info"
-                          id="veh_info1"
-                        />
-                        <label class="form-check-label" for="veh_info1">
-                          <i class="fa fa-biking"></i>
-                          <p>Two - Wheeler</p>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="veh_info"
-                          id="veh_info2"
-                          checked
-                        />
-                        <label class="form-check-label" for="veh_info2">
-                          <i class="fa fa-cab"></i>
-                          <p>Four - Wheeler</p>
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" />
-                        <label class="form-check-label" for="veh_info2">
-                          <i class="fa fa-hands-wash"></i>
-                          <p>Do wash for the vehicle.</p>
-                        </label>
-                        <small class="text-danger"
-                          >Cost for Vehicle wash will be charged
-                          additionaly.</small
-                        >
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4">
-                <h4>Your Payment Summary</h4>
-                <p>Half an hour - Rs.25</p>
-                <p>Per hour - Rs.50</p>
-                <div class="total_pay">
-                  <h6>Your Total Order</h6>
-                  <p>Rs.50/hour</p>
-                </div>
-                <div class="order_btns">
-                  <div>
-                    <a href="" class="btn btn_cancel">Cancel</a>
-                  </div>
-                  <div>
-                    <a href="" class="btn btn_complete">Complete Order</a>
-                  </div>
-                </div>
-                <p class="mt-2">
-                  By purchasing, you accept our <a href="">terms & policy</a>.
-                </p>
-              </div>
             </div>
-            <div class="col-lg-6 col-12 right_row">
-              <div class="card">
-                <div class="card-body">
-                  <img
-                    src="{% static 'image/parkingspace.png'%}"
-                    alt=""
-                    class="img-fluid parkingspace_img"
-                  />
-                  <div class="parking_space_info mt-4">
-                    <h5 class="parkingspace_name">
-                      Triveni Underground Complex Parking
-                    </h5>
-                    <p class="parking_space_location">
-                      Putalisadak Road, Kathmandu
-                    </p>
-                  </div>
-                  <div class="parking_space_details">
-                    <h6>Details About Parking Spot</h6>
-                    <p class="space_details">
-                      Triveni Parking Spot stands out as an expansive indoor
-                      facility designed to accommodate a substantial number of
-                      vehicles, catering to both two-wheelers and four-wheelers
-                      alike. With a staggering capacity of up to 400 parking
-                      slots, Triveni Parking Spot ensures ample space for a
-                      diverse range of vehicles, making it a convenient and
-                      secure choice for urban commuters. This state-of-the-art
-                      facility prioritizes user convenience and safety, offering
-                      a well-organized layout and advanced security measures to
-                      safeguard parked vehicles. Located at a prime location,
-                      Triveni Parking Spot is easily accessible, providing a
-                      seamless parking experience for individuals looking to
-                      park their vehicles with ease. Whether you're a daily
-                      commuter or an occasional visitor, Triveni Parking Spot
-                      offers a reliable solution for your parking needs,
-                      ensuring that your vehicle is not just parked but is also
-                      well-protected within this spacious and well-maintained
-                      indoor parking space.
-                    </p>
-                    <hr class="dotted_hr" />
-                    <p class="qr_area">
-                      After purchasing, you will receive a personalized QR code.
-                      Simply scan your QR code at the designated entrance, and
-                      you're all set to park your vehicle with ease.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
-  {% endblock %}
+    </section>
+{% endblock %}
