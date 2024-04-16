@@ -1,5 +1,6 @@
+import math
 from django.db.models import Q, Count
-from django.http import JsonResponse
+from django.http import Http404, JsonResponse, QueryDict
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.models import User
@@ -13,6 +14,8 @@ from django.core.serializers import (
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from django.utils import timezone
+import humanize
+import requests
 
 # from .models import Users
 # Create your views here.
@@ -52,7 +55,7 @@ def login_view(request):
                 # Authentication successful, login the user
                 login(request, user)
                 messages.success(request, "Welcome to the ParkGo!.")
-                return redirect("profile")
+                return redirect("dashboard")
 
         # Authentication failed
         error = "Invalid email or password"
@@ -235,17 +238,24 @@ def payment(request):
         location_info = ParkingPlace.objects.get(id=selected_location_id)
         user_vehicles = Vehicle.objects.filter(user=request.user)
 
+        duration = datetime.strptime(
+            exiting_date + " " + exiting_time, "%Y-%m-%d %H:%M"
+        ) - datetime.strptime(arriving_date + " " + arriving_time, "%Y-%m-%d %H:%M")
+        duration_hours = math.ceil(duration.total_seconds() / 3600)
+
         return render(
             request,
-            "payment.html",
+            "details.html",
             {
                 "location_info": location_info,
                 "arriving_date": arriving_date,
                 "exiting_date": exiting_date,
                 "arriving_time": arriving_time,
                 "exiting_time": exiting_time,
+                "duration": humanize.naturaldelta(duration),
+                "duration_hours": duration_hours,
                 "slots": slots,
-                "total_cost": int(slots) * location_info.price,
+                "total_cost": int(slots) * duration_hours * location_info.price,
                 "user_vehicles": user_vehicles,
             },
         )
@@ -257,14 +267,17 @@ def payment(request):
         exiting_time = request.POST.get("exiting-time")
         slots = int(request.POST.get("slots"))
         vehicle = int(request.POST.get("vehicle"))
+        wash = bool(request.POST.get("wash") == "true")
 
         # Create a new booking entry
         place = ParkingPlace.objects.get(id=selected_location_id)
         spaces = ParkingSpace.objects.filter(is_booked=False)[:slots]
         user_vehicle = Vehicle.objects.get(id=vehicle)
 
+        booking_ids = []
+
         for space in spaces:
-            ParkingBooking(
+            new_booking = ParkingBooking(
                 place=place,
                 space=space,
                 vehicle=user_vehicle,
@@ -274,12 +287,82 @@ def payment(request):
                 exiting_at=datetime.strptime(
                     f"{exiting_date} {exiting_time}", "%Y-%m-%d %H:%M"
                 ),
-                to_wash=False,
-            ).save()
+                to_wash=wash,
+            )
+            new_booking.save()
+            booking_ids.append(new_booking.pk)
+
             space.is_booked = True
             space.save()
 
-    return redirect("/booking")
+    q = QueryDict(mutable=True)
+    q.setlist("id", booking_ids)
+    return redirect("/checkout" + "?" + q.urlencode())
+
+
+@login_required(login_url="login")
+def checkout(request):
+    booking_ids = request.GET.getlist("id")
+    is_payment_done = request.GET.get("status")
+    purchase_order_id = request.GET.get("purchase_order_id")
+
+    if len(booking_ids) == 0 and is_payment_done is None:
+        raise Http404
+
+    if purchase_order_id is not None:
+        booking_ids_split = purchase_order_id.split("-")
+        orders = ParkingBooking.objects.filter(id__in=booking_ids_split)
+        orders.update(is_paid=True)
+
+    if request.method == "GET":
+        return render(
+            request,
+            "checkout.html",
+            {"is_payment_done": is_payment_done},
+        )
+    else:
+        # Get price
+        # ---------
+
+        orders = ParkingBooking.objects.filter(id__in=booking_ids)
+        parking_booking = orders[0]
+        parking_place = ParkingPlace.objects.get(id=orders[0].place.id)
+
+        price_per_hour = parking_place.price
+        wash_price = parking_place.wash_cost
+
+        duration = parking_booking.exiting_at - parking_booking.arriving_at
+        duration_hours = math.ceil(duration.total_seconds() / 3600)
+
+        purchase_cost = len(booking_ids) * duration_hours * price_per_hour
+        if parking_booking.to_wash:
+            purchase_cost += wash_price
+
+        # Construct payload for Khalti
+        # ----------------------------
+
+        url = "https://a.khalti.com/api/v2/epayment/initiate/"
+
+        payload = json.dumps(
+            {
+                "return_url": "http://127.0.0.1:8000/checkout",
+                "website_url": "http://127.0.0.1:8000",
+                "amount": str(purchase_cost * 100),  # Khalti accepts amount in paisa
+                "purchase_order_id": "-".join(booking_ids),
+                "purchase_order_name": "ParkGO",
+                "customer_info": {
+                    "name": request.user.username,
+                    "email": request.user.email,
+                },
+            }
+        )
+        headers = {
+            "Authorization": "key live_secret_key_68791341fdd94846a146f0457ff7b455",
+            "Content-Type": "application/json",
+        }
+
+        response = requests.request("POST", url, headers=headers, data=payload)
+        return redirect(json.loads(response.text)["payment_url"])
 
 
 @csrf_exempt

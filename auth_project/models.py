@@ -65,3 +65,5 @@ class ParkingBooking(models.Model):
     exiting_at = models.DateTimeField()
 
     to_wash = models.BooleanField()
+
+    is_paid = models.BooleanField(default=False)

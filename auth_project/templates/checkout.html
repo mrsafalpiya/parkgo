@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section class="payment__page">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <!-- No payment status -->
+                    {% if is_payment_done == None %}
+                        <h4>Payment</h4>
+                        <div class="payment_method">
+                            <div class="row gx-5 gy-3 mx-auto justify-content-center">
+                                <div class="col-lg-4 col-12">
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <button class="card" type="submit">
+                                            <div class="card-body w-100">
+                                                <img src="{% static 'image/khalti.png' %}" alt="" class="img-fluid" />
+                                            </div>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4 col-12">
+                                    <a class="card" href="/booking">
+                                        <div class="card-body d-flex align-items-center justify-content-center"
+                                             style="margin: auto">
+                                            <h4>Pay on site</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="term_con text-center">
+                            <p>
+                                All sales are final No-refunds or exchange possible. Please check
+                                the date & time of the parking.
+                            </p>
+                            <p>Download your receipt from booking made.</p>
+                            <p>ENJOY YOUR PARKING AT PARK & GO.</p>
+                        </div>
+                    {% endif %}
+                    <!-- Payment status -->
+                    {% if is_payment_done == "Completed" %}
+                        <div class="text-center py-4">
+                            <h1>Payment is completed!</h1>
+                            <a href="/booking">Go to your bookings</a>
+                        </div>
+                    {% endif %}
+                    {% if is_payment_done == "User canceled" %}
+                        <div class="text-center py-4">
+                            <h1>You canceled the payment</h1>
+                            <a href="/booking">Go to your bookings</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

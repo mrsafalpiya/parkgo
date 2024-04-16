@@ -71,7 +71,9 @@ function renderMap(filter) {
     const location = `${layer.feature.properties.parking_name}, ${layer.feature.properties.location_name}`;
     return `<div class="map-popup">
                 <p>${location}</p>
-                <button class="map-popup-button" type="button" onclick="selectLocation(${layer.feature.properties.pk}, '${location}')">Select</button>
+                <button class="map-popup-button" type="button" onclick="selectLocation(${
+                  layer.feature.properties.pk
+                }, '${location.replace(/'/g, "\\'")}')">Select</button>
               </div>`;
   });
 
