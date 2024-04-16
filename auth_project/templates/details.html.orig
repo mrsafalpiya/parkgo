@@ -23,6 +23,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-title">Booking 2 Details</p>
+                            <div class="info_park">
+                                <p>Arriving On</p>
+                                <p>Thur, Mar 8 | 2:00 pm</p>
+                            </div>
+                            <div class="info_park">
+                                <p>Leaving On</p>
+                                <p>Thur, Mar 8 | 3:00 pm</p>
+                            </div>
+                            <div class="info_park">
+                                <p>Duration</p>
+                                <p>1 Hours</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="vehicle_opt">
                         <h6>Vehicle Type and Wash</h6>
                         <div class="card">

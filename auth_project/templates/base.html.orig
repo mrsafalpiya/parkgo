@@ -57,12 +57,13 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand">
+      <nav class="navbar bg-body-secondary navbar-expand">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src= "{% static 'image/park and go yelowish.png' %}" class="img-fluid" />
+          <a class="navbar-brand" href="{% url 'dashboard' %}">
+                <img src="{% static 'image/parkandgolavender.png' %}" alt="" class="img-fluid" />
           </a>
-      
+          
+
           <button
             class="navbar-toggler"
             type="button"
@@ -127,14 +128,14 @@
 </main>
 <footer>
   <div class="container">
+    <hr class="hrOne" />
     <div class="footer_link">
-      <div class="footer-logo"> <img src="{% static 'image/park and go yelowish.png' %}" class="img-fluid" />
-      </div>
+      <h2><span>PARK</span>GO</h2>
       <div class="footer_links">
-        <p><a href="">Terms and Condition</a></p>
-        <p><a href="">How it works</a></p>
-        <p><a href="">About Us</a></p>
-        <p><a href="">Contact</a></p>
+        <p><a href="{% url 'terms' %}">Terms and Condition</a></p>
+        <p><a href="{% url 'works' %}">How it works</a></p>
+        <p><a href="{% url 'about' %}">About Us</a></p>
+        <p><a href="{% url 'contact' %}">Contact</a></p>
       </div>
     </div>
     <hr class="hrOne" />
@@ -142,16 +143,16 @@
       <h6>&copy; 2024 All rights reserved ParkGo</h6>
       <div class="social__links">
         <p>
-          <a href=""><i class="fab fa-facebook"></i></a>
+          <a href=""><i class="fa fa-facebook"></i></a>
         </p>
         <p>
-          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fa fa-twitter"></i></a>
         </p>
         <p>
-          <a href=""><i class="fab fa-instagram"></i></a>
+          <a href=""><i class="fa fa-instagram"></i></a>
         </p>
         <p>
-          <a href=""><i class="fab   fa-youtube"></i></a>
+          <a href=""><i class="fa fa-youtube"></i></a>
         </p>
       </div>
     </div>

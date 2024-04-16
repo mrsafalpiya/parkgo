@@ -4,6 +4,32 @@
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
+/* Ocean Blue */
+:root {
+  --b-0: #EAEBF2;
+  --b-10: #AAAEC8;
+  --b-20: #878CB1;
+  --b-30: #535B8F;
+  --b-40: #303978;
+  --b-50: #222854;
+  --b-60: #1D2349;
+/* Neutral */
+    --n-0: #FFFFFF;
+    --n-10: #CBCBCB;
+    --n-20: #A5A5A9;
+    --n-30: #787982;
+    --n-40: #43455A;
+    --n-50: #262942;
+    --n-60: #0E1129;
+  
+}
+
+h4,h3, h5,h6{
+ color: var(--b-40);
+}
+.navbar{ 
+  background: var(--b-40);
+}
 header nav .container-fluid .navbar-brand img {
   height: 65px;
   width: 65px;
@@ -11,19 +37,22 @@ header nav .container-fluid .navbar-brand img {
 }
 
 header nav .navbar-nav .nav-item .nav-link button {
-  padding: 10px 20px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  transition: all 60ms linear;
-  text-transform: uppercase;
-  box-shadow: -2px 2px 2px 1px rgba(23, 37, 167, 0.568);
+  font-size: 14px;
+  line-height: 1;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid var(--n-0);
+  color:var(--n-0);
+  border-radius: 4px;
+  transition: all 0.4s ease;
+  /* box-shadow: -2px 2px 2px 1px rgba(23, 37, 167, 0.568); */
 }
 header nav .navbar-nav .nav-item .nav-link button:hover {
   transform: scale(1.05);
+  box-shadow: 4px 4px #ccccccc4;
 }
 header nav .navbar-nav .nav-item .nav-link .btn-signup {
-  box-shadow: -2px 2px 2px 1px rgba(23, 37, 167, 0.568);
+  /* box-shadow: -2px 2px 2px 1px rgba(23, 37, 167, 0.568); */
 }
 
 /* Section header Css */
@@ -31,47 +60,60 @@ header nav .navbar-nav .nav-item .nav-link .btn-signup {
 main .header {
   background: url("/assets/img/banner.png");
   background-size: cover;
+  min-height: 90vh;
+  position:relative;
   width: 100%;
-  object-fit: cover;
+    object-fit: cover;
   overflow-x: hidden;
 }
+/* .header::after{ 
+  background: linear-gradient(89.86deg, #323232 3.52%,
+   rgba(50, 50, 50, 0.85) 40.72%, rgba(50, 50, 50, 0.38)
+    50.31%, rgba(50, 50, 50, 0.04) 75.98%);
 
+  content:" ";
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  inset:0;
+} */
 main .header__intro {
   margin-top: 60px;
+  margin-bottom: 24px;
 }
 main .header .header__intro h1 {
   color: #fff;
   text-transform: capitalize;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 36px;
 }
 main .header .header__intro h1 span {
-  color: #5f5d9c;
+  color:#a5bdeb;
 }
 
 .header .header__intro p {
-  font-size: 18px;
-  color: #5f5d9c;
-  font-weight: 600;
-  font-style: italic;
+  font-size: 16px;
+  color:var(--n-0);
+  line-height: 1.5;
   text-transform: capitalize;
 }
 .header .form {
-  background-color: #fff;
-  border-radius: 25px;
-  padding: 20px 25px;
+  background-color: rgb(255 255 255 / 0.8);
+  box-shadow: 0 4px 10px -3px rgba(0,0,0,.12);
+  border-radius: 8px;
+  padding: 32px 24px;
   width: 70%;
   margin: 0 auto;
 }
 
+
 .header .form .form__intro {
-  color: #000;
-  text-decoration: underline;
+  color: var(--b-40);
   font-weight: 600;
+  font-size: 18px;
 }
 
 .header .form form .form-control {
-  box-shadow: 0px 0px 1px 1px #555;
   width: 100%;
   padding: 10px;
 }
@@ -88,20 +130,31 @@ main .header .header__intro h1 span {
   cursor: pointer;
   border: none;
 }
+.search-btn{
+  background: var(--b-40);   
+}
 .header .search__form .input__icons button .icon {
-  color: #ff7676;
+ color: var(--n-0); 
 }
 .header .search__form #btn_showpark {
   text-align: center;
-  background-color: #5f5d9c;
+  background-color: var(--b-40);
   width: 100%;
-  padding: 10px;
+  padding: 10px 16px;
   outline: none;
-  border-radius: 10px;
+  border-radius: 4px;
   border: none;
-  font-weight: 600;
+  transition:all 0.4s ease;
   font-size: 16px;
   color: #fff;
+}
+.header .search__form #btn_showpark:hover{
+  background: var(--b-30);
+}
+.form-label{
+  color: var(--b-40);
+  font-size: 14px;  
+  font-weight: 600;
 }
 
 .header
@@ -118,44 +171,135 @@ main .header .header__intro h1 span {
 }
 .header .search__form .modal .modal-dialog .modal-body table .place_name {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.modal .modal-dialog{
+  max-width: 740px;
+
+}
+
+.modal-content{
+    padding: 24px;
+}
+
+.modal.show .modal-dialog{
+  transform: translateY(30%);
+}
+
+.modal-title{
+  font-size: 24px;
+  color: var(--b-40);
+  font-weight: 600;
+}
+
+tbody.modal-card tr td{
+  background: transparent;
+  box-shadow: none;
+}
+
+.table-row{
+  color: var(--n-20);
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.57;
+  text-align: start;
+}
+
+
+
+.img_hold_table .img{
+  position: relative;
+  overflow: hidden;
+  padding-top: 85%;
+  height: 100%;
+}
+.header .search__form .modal .modal-dialog .modal-body table .img_hold_table img {
+  /* height: 100px;
+  width: 200px; */
+  position: absolute;
+  height: 100%;
+  width:100%;
+  inset:0;
+  object-fit: cover;
 }
 .header .search__form .modal .modal-dialog .modal-body table p {
   color: #555;
-  font-size: 13px;
+  font-size: 14px;
+  margin-bottom: 8px;
   text-transform: capitalize;
 }
-.header .search__form .modal .modal-dialog .modal-body table .btn {
-  color: #fff;
-  background-color: #5f5d9c;
+
+.primary-button{
+  background: var(--b-40);
+  font-size: 14px;
+  line-height: 1.57;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-weight: normal;
+  color: var(--n-0);
+  transition: all .3s ease;
 }
-.header
-  .search__form
-  .modal
-  .modal-dialog
-  .modal-body
-  table
-  .total-price-label {
-  margin-top: 28px;
-  margin-bottom: 0px;
-}
-.header .search__form .modal .modal-dialog .modal-body table .total-price {
-  font-size: 18px;
-  font-weight: 700;
+
+.primary-button:hover{
+  background: var(--b-30);
+  color: var(--n-0);
+  
 }
 main .why_choose {
-  padding: 60px 0px;
+  padding: 80px 0px;
   overflow-x: hidden;
+  background-color:var(--n-0);
+  margin-top: 20px;
 }
 main .why_choose .section__header {
-  font-size: 32px;
+  font-size: 38px;
   text-transform: capitalize;
   font-weight: bold;
 }
-.choose_row {
-  margin-top: 20px;
+main .why_choose .section__header {
+  color:var(--b-40);
 }
-.choose_row .icon_preholder {
+.choose_row {
+  margin-top: 48px;
+}
+
+@media(min-width:768px){
+  .choose_row {
+  margin-top: 32px;
+  }
+}
+
+
+.choose_card{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media(max-width: 768px) {
+  .choose_card {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+.choose_card .card-wrapper{
+  background: var(--n-0);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0px 13px 19px 0px rgba(0, 0, 0, 0.0705882353);
+}
+
+@media(max-width: 640px) {
+  .choose_card {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+
+
+/* .choose_row .icon_preholder {
   border: none;
   height: 140px;
   width: 140px;
@@ -163,37 +307,61 @@ main .why_choose .section__header {
   background-color: #fff;
   box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-}
-.choose_row .icon_clr {
+} */
+
+/* .choose_row .icon_clr {
   background-color: #5f5d9c21;
-}
+} */
+
 .choose_row .icon_holder {
-  height: 140px;
-  width: 140px;
+  /* height: 140px;
+  width: 140px; */
+  width: 120px;
 }
+
 .choose_row .icon_holder img {
-  height: 50%;
-  width: 50%;
-  margin: 28px;
+  /* height: 50%;
+  width: 50%; */
+  /* margin: 28px; */
 }
+
 .choose_row .card {
-  padding: 10px;
+  border: none;
+  padding: 0;
+  /* padding: 10px;
   border-radius: 40px;
   height: 200px;
   width: 100%;
-  box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.1); */
 }
+.choose_row .card-title{
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--b-40);
+}
+
 .choose_row .card_clr {
-  background-color: #5f5d9c9f;
+  /* background-color: #5f5d9c9f; */
 }
+
+.choose_row .card-body{
+  border: none;
+  padding: 0;
+}
+
+
 .choose_row .card .card-text {
-  text-align: justify;
+  font-size: 14px;
+  line-height: 1.57;
+  color:#555;
+
 }
+
 
 /*works section css */
 main .works {
   padding: 60px 0;
-  background-color: #f7f7f7;
+  background-color: var(--n-0);
   overflow-x: hidden;
 }
 .works .row .work_col-two img {
@@ -203,7 +371,7 @@ main .works {
   border-radius: 5px;
 }
 .works .section__header {
-  color: #5f5d9c;
+  color: var(--b-40);
   font-size: 32px;
   font-weight: bold;
   text-transform: capitalize;
@@ -214,28 +382,24 @@ main .works {
   text-align: justify;
 }
 .works .row .work_col_one p span {
-  color: #000;
+  color: var(--b-40);
   font-weight: bold;
 }
-.works .row .work_col_one .btn_learn {
-  background-color: #5f5d9c;
-  padding: 10px 16px;
-  font-weight: 600;
-  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
-}
+
 main .navi {
   padding: 60px 0;
   overflow-x: hidden;
+  background-color: var(--n-0);
 }
 
 main .navi .section__header {
-  color: #5f5d9c;
+  color: var(--b-40);
   font-size: 32px;
   font-weight: bold;
   text-transform: capitalize;
 }
 main .navi .section__header span {
-  color: #a06262;
+  color: var(--b-40);
 }
 main .navi .navi_col_two p {
   margin-top: 20px;
@@ -246,7 +410,7 @@ main .navi .navi_col_one img {
   border-radius: 10px;
 }
 main .testimonial {
-  padding: 60px 0;
+  padding: 80px 0;
   background: url("/assets/img/backdrop.png");
   height: 100%;
   width: 100%;
@@ -264,28 +428,30 @@ main .testimonial .section__header {
 main .testimonial .card {
   height: 300px;
   padding: 10px;
-  background-color: #6561da;
+  background: var(--n-0);
 }
 main .testimonial .card .card-footer {
   border-top: none;
 }
 main .testimonial .card .card-text {
   text-align: justify;
+  color: var(--n-40);
+  padding: 10px 0px;
 }
 main .testimonial .card .card-footer .img_holder {
-  height: 90px;
-  width: 90px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   border: 1px solid black;
   outline: none;
-  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 2px 2px #00000080;
   margin: 0 auto;
   background-color: #fff;
 }
 main .testimonial .card .card-footer .img_holder img {
   height: 80%;
   width: 80%;
-  margin: 9px;
+  margin: 8px;
 }
 main .testimonial .card .card-footer .row .col-8 {
   display: flex;
@@ -293,12 +459,22 @@ main .testimonial .card .card-footer .row .col-8 {
   justify-content: center;
 }
 footer {
-  background-color: #000;
+  background-color: var(--b-40);
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  padding: 60px 0 10px 0;
+  padding: 80px 0 40px 0;
 }
+
+.footer-logo{
+  margin-bottom: 2px;
+}
+.footer-logo img{
+  max-width: 80px;
+  width: 100%;
+  line-height: 0;
+}
+
 
 footer .hrOne {
   border-top: 3px solid #5f5d9c;
@@ -306,6 +482,8 @@ footer .hrOne {
 footer p a {
   color: #fff;
   text-decoration: none;
+  font-size: 14px;
+  line-height: 1.57;
   text-transform: capitalize;
   padding: 0px 10px;
 }
@@ -321,6 +499,7 @@ footer .footer_link h2 span {
 footer .footer_link,
 footer .social__info {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 footer .footer_links,
@@ -330,10 +509,13 @@ footer .social__links {
   align-items: center;
 }
 footer .social__info {
-  margin-top: 60px;
+  margin-top: 32px;
 }
 footer .social__info h6 {
-  color: #555;
+  color: var(--n-0);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.57;
 }
 
 /*terms page css */
@@ -376,6 +558,7 @@ main .about__us,
 main .page__work,
 main .signin {
   padding: 60px 0;
+  background-color: var(--n-0);
 }
 
 main .about__us p {
@@ -423,7 +606,7 @@ main .signin .card {
   height: max-content;
 }
 main .signin .card .form form p a {
-  color: #5f5d9c;
+  color: #a5bdeb;
 }
 main .signin .card .form form label {
   font-weight: 600;
@@ -441,7 +624,7 @@ main .signin .card .form form .form_btns .update_account_btn {
   border: none;
   outline: none;
   background-color: transparent;
-  color: #5f5d9c;
+  color: var(--b-40);
 }
 main .signin .card .form form .btn_submit,
 main .my__profile .form .form_btns .btn_reset {
@@ -449,7 +632,7 @@ main .my__profile .form .form_btns .btn_reset {
   font-size: 16px;
   font-weight: 600;
   border: none;
-  background-color: #5f5d9c;
+  background-color: var(--b-40);
   border-radius: 5px;
   color: #fff;
   text-transform: capitalize;
@@ -460,6 +643,7 @@ main .signin .card .form .P_signin {
 }
 main .signin .card .form .P_signin a {
   text-decoration: none;
+  color:#a5bdeb;
 }
 
 main .my__profile .side__bar {
@@ -510,16 +694,16 @@ main .my__profile .account__info .card .vehicle__info .vehicle_btns {
 }
 main .my__profile .account__info .card .vehicle__info .vehicle_btns .btn_edit {
   background-color: green;
-  padding: 10px 20px;
+  padding: 10px 16px;
   color: #fff;
 }
 main .my__profile .account__info .card .vehicle__info .vehicle_btns .btn_dlt {
   background-color: red;
-  padding: 10px 20px;
+  padding: 10px 16px;
   color: #fff;
 }
 main .my__profile .account__info .card .form .btn_submit_div .btn {
-  background-color: #5f5d9c;
+  background-color:var(--b-40);
   padding: 10px 20px;
   color: #fff;
 
@@ -528,12 +712,28 @@ main .my__profile .account__info .card .form .btn_submit_div .btn {
 
 main .details__page {
   padding: 60px 0;
+  background-color: var(--n-0);
 }
 
 .details__page .right_row .card .parkingspace_img {
   height: 400px;
   width: 100%;
   object-fit: cover;
+}
+
+.fa-user-large{
+  color: var(--b-0);
+}
+
+.nav-link.dropdown-toggle{
+  color: var(--n-0);
+  font-size: 14px;
+  line-height: 1.57;
+  font-weight: normal;
+}
+
+.nav-link.dropdown-toggle.show{
+  color: var(--n-0);
 }
 
 .details__page .right_row .card .parking_space_info .parkingspace_name {
@@ -546,7 +746,7 @@ main .details__page {
 .details__page .right_row .card .parking_space_details h6 {
   font-weight: bolder;
   font-size: 18px;
-  text-decoration: underline;
+  color: var(--b-40);
 }
 
 .details__page .right_row .card .parking_space_details .space_details {
@@ -593,7 +793,7 @@ main .details__page {
 .details__page .left_row .total_pay p {
   font-weight: bold;
   font-size: 18px;
-  color: #5f5d9c;
+  color: var(--b-40);
 }
 .details__page .left_row .order_btns .btn {
   padding: 10px 20px;
@@ -604,9 +804,12 @@ main .details__page {
 }
 .details__page .left_row .order_btns .btn_complete {
   background-color: green;
+
+
 }
 main .payment__page {
   padding: 60px 0;
+  background-color: var(--n-0);
 }
 main .payment__page .card .payment_method .card {
   height: 240px;
