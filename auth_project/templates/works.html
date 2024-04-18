@@ -1,103 +1,111 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-      <section class="breadcrumb">
-        <div class="conatiner">
-          <div class="row">
-            <div class="col-12 hero__banner order-lg-0 order-1 px-4">
-              <h1 class="head__name text-center">
-                <a href="index.html">Home</a> | How it works
-              </h1>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="page__work">
+    <section class="page__work">
         <div class="container">
-          <div class="work__header text-center">
-            <h3>Four Easy Steps to Park With Us</h3>
-            <p>
-              For day-to-day needs,conveniently make payments for on-street
-              parking or pre-book a garage space in advance. Whether it's a
-              concert or a sporting event, easily secure your spot by reserving
-              it ahead of your planned destination visit.
-            </p>
-          </div>
-          <div class="row gx-4 gy-4 page_row">
-            <div class="col-md-6 col-lg-3 col-12">
-              <div class="card">
-                <div class="card-body">
-                  <div class="text-center">
-                    <h2>1</h2>
-                    <p>Enter <br />Destination</p>
-                  </div>
-                  <div class="text-center mt-5">
-                    <img
-                      src="/assets/img/icons/preview.png"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div class="work__header text-center">
+                <h3>Four Easy Steps to Park With Us</h3>
+                <p>
+                    For day-to-day needs,conveniently make payments for on-street
+                    parking or pre-book a garage space in advance. Whether it's a
+                    concert or a sporting event, easily secure your spot by reserving
+                    it ahead of your planned destination visit.
+                </p>
             </div>
-            <div class="col-md-6 col-lg-3 col-12">
-              <div class="card">
-                <div class="card-body">
-                  <div class="text-center">
-                    <h2>2</h2>
-                    <p>Set Time <br />and Date</p>
-                  </div>
-                  <div class="text-center mt-5">
-                    <img
-                      src="/assets/img/icons/calendar.png"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
+            <div class="row gx-4 gy-4 page_row">
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="card step-card">
+                        <div class="card-body step-entry">
+                            <img src="{% static 'image/enter-destination.png' %}"
+                                 alt=""
+                                 class="img-fluid step-image" />
+                            <div class="step-content">
+                                <div class="text-center">
+                                    <h2>1</h2>
+                                    <p>
+                                        Enter
+                                        <br />
+                                        Destination
+                                    </p>
+                                </div>
+                                <div class="text-center mt-5">
+                                    <img src="{% static 'image/search-engine-optimisation 1.png' %}" alt="" class="img-fluid step-icon" style="height: 86px;"/>
+                                </div>
+                                <p class="step-sub-content">Search your destination</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3 col-12">
-              <div class="card">
-                <div class="card-body">
-                  <div class="text-center">
-                    <h2>3</h2>
-                    <p>
-                      Select <br />
-                      Vechile
-                    </p>
-                  </div>
-                  <div class="text-center mt-5">
-                    <img
-                      src="/assets/img/icons/choice.png"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="card step-card">
+                        <div class="card-body step-entry">
+                            <img src="{% static 'image/time-and-date.png' %}"
+                                 alt=""
+                                 class="img-fluid step-image" />
+                            <div class="step-content">
+                                <div class="text-center">
+                                    <h2>2</h2>
+                                    <p>
+                                        Set Time
+                                        <br />
+                                        and Date
+                                    </p>
+                                </div>
+                                <div class="text-center mt-5">
+                                    <img src="{% static 'image/time 1.png' %}" alt="" class="img-fluid step-icon" />
+                                </div>
+                                <p class="step-sub-content">Select your time of arrival</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3 col-12">
-              <div class="card">
-                <div class="card-body">
-                  <div class="text-center">
-                    <h2>4</h2>
-                    <p>
-                      Pay <br />
-                      & Go
-                    </p>
-                  </div>
-                  <div class="text-center mt-5">
-                    <img
-                      src="/assets/img/icons/pay.png"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="card step-card">
+                        <div class="card-body step-entry">
+                            <img src="{% static 'image/select-vehicle.png' %}"
+                                 alt=""
+                                 class="img-fluid step-image" />
+                            <div class="step-content">
+                                <div class="text-center">
+                                    <h2>3</h2>
+                                    <p>
+                                        Select
+                                        <br />
+                                        Vehicle
+                                    </p>
+                                </div>
+                                <div class="text-center mt-5">
+                                    <img src="{% static 'image/autonomous-car 1.png' %}" alt="" class="img-fluid step-icon" style="height: 86px;" />
+                                </div>
+                                <p class="step-sub-content">2 wheelers / 4 wheelers</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="card step-card">
+                        <div class="card-body step-entry">
+                            <img src="{% static 'image/pay-and-go.png' %}"
+                                 alt=""
+                                 class="img-fluid step-image" />
+                            <div class="step-content">
+                                <div class="text-center">
+                                    <h2>4</h2>
+                                    <p>
+                                        Pay
+                                        <br />
+                                        & Go
+                                    </p>
+                                </div>
+                                <div class="text-center mt-5">
+                                    <img src="{% static 'image/payment-method 1.png' %}" alt="" class="img-fluid step-icon" style="height: 86px;" />
+                                </div>
+                                <p class="step-sub-content">Pay and start parking...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 {% endblock %}

@@ -578,9 +578,8 @@ main .page__work .work__header h3 {
 main .page__work .card {
   height: 320px;
   width: 150px;
-  margin: 0 auto;
   padding: 10px;
-  background-color: #5f5d9c;
+  background-color: #303978;
 }
 main .page__work .card h2 {
   font-size: 60px;
@@ -903,4 +902,60 @@ main .payment__page .card .term_con p:nth-child(3) {
   justify-content: center;
   align-items: center;
   padding: 72px;
+}
+
+.step-entry {
+  transition: all 0.15s;
+  padding-left: 0;
+}
+
+.step-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.15s;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.step-content {
+  position: absolute;
+  transition: all 0.25s, color 0.05s;
+}
+
+.step-sub-content {
+  opacity: 0;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  border-bottom: 1px white solid;
+  margin-top: 120px;
+}
+
+.step-card {
+  transition: all 0.25s;
+  height: 450px !important;
+  color: white !important;
+}
+
+.step-card:hover {
+  width: 250px !important;
+}
+
+.step-card:hover .step-content {
+  transform: translate(42px, -10px);
+}
+
+.step-card:hover .step-sub-content {
+  opacity: 1;
+}
+
+.step-entry:hover .step-image {
+  opacity: 1;
+}
+
+.step-icon {
+  filter: invert();
 }
