@@ -29,6 +29,7 @@ function selectLocation(id, location) {
   selectedLocationId.value = String(id);
   document.getElementById("location-selected").innerHTML =
     "Location selected: <span style='font-weight: 600'>" + location + "</span>";
+  document.getElementById("address").value = location;
   renderMap();
 
   // Update information in the "Show parking spaces" modal
