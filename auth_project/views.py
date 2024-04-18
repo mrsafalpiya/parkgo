@@ -332,7 +332,7 @@ def checkout(request):
         wash_price = parking_place.wash_cost
 
         duration = parking_booking.exiting_at - parking_booking.arriving_at
-        duration_hours = math.ceil(duration.total_seconds() / 3600)
+        duration_hours = math.ceil(duration.seconds / 3600)
 
         purchase_cost = len(booking_ids) * duration_hours * price_per_hour
         if parking_booking.to_wash:
