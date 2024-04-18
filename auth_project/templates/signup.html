@@ -10,6 +10,11 @@
                 {{ message }}
                 </div>
               {% endif %}
+              {% if message.tags == 'error' %}
+                <div class="alert alert-danger" role="alert">
+                {{ message }}
+                </div>
+              {% endif %}
               {% endfor %}
           {% endif %}
             <div class="form">

@@ -59,6 +59,7 @@ def login_view(request):
                 return redirect("dashboard")
 
         # Authentication failed
+        messages.error(request, "Invalid email or password")
         error = "Invalid email or password"
         return render(request, "signup.html", {"error": error})
 
