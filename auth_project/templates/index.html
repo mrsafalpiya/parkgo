@@ -2,29 +2,29 @@
 {% block content %}
     {% load static %}
     <section class="hero-section header">
-
         <div class="container position-relative">
-          <div class="row header__row">
-            <div class="col-12" style="padding-bottom: 48px">
-              <div class="header__intro text-center">
-                <h1>Drive in confidence, <span>park with convenience</span></h1>
-                <p>
-                  seize your spot instantly; book your desired parking space
-                  anytime, anywhere!
-                </p>
-              </div>
+            <div class="row header__row">
+                <div class="col-12" style="padding-bottom: 48px">
+                    <div class="header__intro text-center">
+                        <h1>
+                            Drive in confidence, <span>park with convenience</span>
+                        </h1>
+                        <p>
+                            seize your spot instantly; book your desired parking space
+                            anytime, anywhere!
+                        </p>
+                    </div>
                     <div class="form">
                         <h6 class="form__intro">Select your date and time</h6>
                         <form class="search__form" method="GET" action="/payment">
                             {% csrf_token %}
                             <div class="mb-3 input__icons">
-                                <input 
-                                       type="text"
+                                <input type="text"
                                        class="form-control mt-4"
                                        id="address"
                                        placeholder="Search address or place" />
-                                <button
-                                    class="search-btn"> <i class="fa fa-search icon"></i>
+                                <button class="search-btn">
+                                    <i class="fa fa-search icon"></i>
                                 </button>
                             </div>
                             {{ markers|json_script:"markers-data" }}
@@ -98,32 +98,28 @@
                                             <div class="modal-body p-0">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped">
-
                                                         <thead class="">
                                                             <tr class="table-row">
-                                                              <th class="w-25">Sort By</th>
-                                                              <th class="w-50">Distance</th>
-                                                              <th clas="w-13">Price</th>
-                                                              <th class="w-12">Slots</th>
+                                                                <th class="w-25">Sort By</th>
+                                                                <th class="w-50">Distance</th>
+                                                                <th clas="w-13">Price</th>
+                                                                <th class="w-12">Slots</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="modal-card">
                                                             <tr>
                                                                 <td class="img_hold_table">
                                                                     <div class="img">
-                                                                    <img src="{% static 'image/parkingspace.png' %}"
-                                                                         alt=""
-                                                                         class="img-fluid"
-                                                                         id="selected-place-image" /> 
-
-                                                                          
-                                                                        </div>
+                                                                        <img src="{% static 'image/parkingspace.png' %}"
+                                                                             alt=""
+                                                                             class="img-fluid"
+                                                                             id="selected-place-image" />
+                                                                    </div>
                                                                 </td>
                                                                 <td>
                                                                     <p class="place_name" id="selected-place-name">Triveni complex underground parking</p>
                                                                     <p id="selected-place-location">putalisadak, kathamndu</p>
                                                                     <button class="primary-button btn">Book Now</button>
-
                                                                 </td>
                                                                 <td id="selected-place-price">Rs. 25</td>
                                                                 <td>
@@ -177,9 +173,8 @@
                 </div>
                 <div class="card-wrapper">
                     <div class="icon_preholder icon_clr">
-                      <div class="icon_holder">
-                        <img
-                          src= "{% static 'image/icons/back-in-time.png' %}"
+                        <div class="icon_holder">
+                            <img src="{% static 'image/icons/back-in-time.png' %}"
                                  alt="save time icon"
                                  class="c_icon img-fluid" />
                         </div>
@@ -196,9 +191,8 @@
                 </div>
                 <div class="card-wrapper">
                     <div class="icon_preholder">
-                      <div class="icon_holder text-center">
-                        <img
-                          src="{% static 'image/icons/asset.png' %}"
+                        <div class="icon_holder text-center">
+                            <img src="{% static 'image/icons/asset.png' %}"
                                  alt="secure saving icon"
                                  class="c_icon img-fluid" />
                         </div>
@@ -274,80 +268,72 @@
                         whether it's now or scheduled for later. Compare rates & select
                         the spot that suits you best.With Park & Go, forget the hassle of
                         circling for parking spots. Our user-friendly platform ensures
-                        a smooth booking experience, allowing you to focus on your 
-                        journey ahead. 
+                        a smooth booking experience, allowing you to focus on your
+                        journey ahead.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-      <section class="testimonial">
+    <section class="testimonial">
         <div class="container">
-          <h2 class="section__header text-center">What Our Client says?</h2>
-          <div class="owl-theme owl-carousel mt-4">
-            <div class="item">
-              <div class="card" style="max-width: 540px">
-                <div class="card-body">
-                  <p class="card-text">
-                    ParkGo has transformed my city experience, saving me time
-                    and eliminating the stress of finding a spot. With
-                    user-friendly features and real-time updates, I can now
-                    navigate effortlessly and confidently, knowing my parking
-                    space is secured.
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-4">
-                      <div class="img_holder">
-                        <img
-                          src="{% static 'image/icons/man.png' %}"
-                          alt=""
-                          class="img-fluid"
-                        />
-                      </div>
+            <h2 class="section__header text-center">What Our Client says?</h2>
+            <div class="owl-theme owl-carousel mt-4">
+                <div class="item">
+                    <div class="card" style="max-width: 540px">
+                        <div class="card-body">
+                            <p class="card-text">
+                                ParkGo has transformed my city experience, saving me time
+                                and eliminating the stress of finding a spot. With
+                                user-friendly features and real-time updates, I can now
+                                navigate effortlessly and confidently, knowing my parking
+                                space is secured.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="img_holder">
+                                        <img src="{% static 'image/icons/man.png' %}" alt="" class="img-fluid" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <h6>Jenny Wilson</h6>
+                                    <p>CEO of Workcation</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-8">
-                      <h6>Jenny Wilson</h6>
-                      <p>CEO of Workcation</p>
-                    </div>
-                  </div>
                 </div>
-              </div>
+                <div class="item">
+                    <div class="card" style="max-width: 540px">
+                        <div class="card-body">
+                            <p class="card-text">
+                                ParkGo has transformed my city experience, saving me time
+                                and eliminating the stress of finding a spot. With
+                                user-friendly features and real-time updates, I can now
+                                navigate effortlessly and confidently, knowing my parking
+                                space is secured.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="img_holder">
+                                        <img src="{% static 'image/icons/man.png' %}" alt="" class="img-fluid" />
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <h6>John Cena</h6>
+                                    <p>CEO of Workcation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="item">
-              <div class="card" style="max-width: 540px">
-                <div class="card-body">
-                  <p class="card-text">
-                    ParkGo has transformed my city experience, saving me time
-                    and eliminating the stress of finding a spot. With
-                    user-friendly features and real-time updates, I can now
-                    navigate effortlessly and confidently, knowing my parking
-                    space is secured.
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-4">
-                      <div class="img_holder">
-                        <img
-                          src="{% static 'image/icons/man.png' %}"
-                          alt=""
-                          class="img-fluid"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-8">
-                      <h6>John Cena</h6>
-                      <p>CEO of Workcation</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
     <!-- <section class="footinfo py-3">
         <h2 class="text-center text-capitalize">Save money by pre booking Online</h2>
     </section> -->
@@ -360,21 +346,37 @@
         document.getElementById("total-price").innerHTML = `Rs. ${(parseInt(document.getElementById("selected-place-price").innerHTML.slice(3)) * parseInt(e.target.value)).toFixed(2)}`;
     }
     </script>
+    <script>
+    $('#arriving-date').attr({ "min": new Date().toISOString().split("T")[0] });
+    $('#exiting-date').attr({ "min": new Date().toISOString().split("T")[0] });
+    $('#arriving-date').change(function(e) {
+        $('#exiting-date').val("");
+        $('#exiting-date').attr({ "min": e.target.value });
+    });
+
+    $('#arriving-time').change(function(e) {
+        $('#exiting-time').val("");
+        $('#exiting-time').attr({ "min": e.target.value });
+    });
+
+    $('#exiting-time').change(function(e) {
+        const exitingValue = new Date($('#exiting-date').val() + " " + e.target.value);
+        const arrivingValue = new Date($('#arriving-date').val() + " " + $('#arriving-time').val());
+        if (exitingValue < arrivingValue) {
+            alert('Exiting time should be after arriving time')
+            $('#exiting-time').val("");
+        }
+    });
+    </script>
     <!--JS for owlcarousel-->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
     <script>
     $(document).ready(function(){
         $('.owl-carousel').owlCarousel({
