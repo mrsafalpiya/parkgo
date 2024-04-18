@@ -111,7 +111,11 @@
                             </div>
                             <div class="order_btns">
                                 <div>
-                                    <button href="" class="btn btn_complete" type="submit">Complete Order</button>
+                                    <button class="btn btn_complete"
+                                            type="submit"
+                                            id="complete-order-btn"
+                                            style="display: none">Complete Order</button>
+                                    <p id="complete-order-select-vehicle-warn">Please select a vehicle first.</p>
                                 </div>
                             </div>
                             <p class="mt-2">
@@ -183,5 +187,12 @@
             totalCost.innerText = "Rs. {{ total_cost }}";
         }
     }
+    </script>
+    <!-- Handle vehicle selection and complete order btn -->
+    <script>
+    $('input[type=radio][name=vehicle]').change(function() {
+        $('#complete-order-select-vehicle-warn').css('display', 'none');
+        $('#complete-order-btn').css('display', 'block');
+    });
     </script>
 {% endblock %}
