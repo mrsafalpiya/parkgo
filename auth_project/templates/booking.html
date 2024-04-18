@@ -21,38 +21,6 @@
                         <div class="account__info">
                             <div class="card">
                                 <h3>Booking Information</h3>
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active"
-                                                id="ongoing-tab"
-                                                data-bs-toggle="tab"
-                                                data-bs-target="#ongoing-tab-pane"
-                                                type="button"
-                                                role="tab"
-                                                aria-controls="ongoing-tab-pane"
-                                                aria-selected="true">In Progress</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link"
-                                                id="upcoming-tab"
-                                                data-bs-toggle="tab"
-                                                data-bs-target="#upcoming-tab-pane"
-                                                type="button"
-                                                role="tab"
-                                                aria-controls="upcoming-tab-pane"
-                                                aria-selected="false">Upcoming</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link"
-                                                id="past-tab"
-                                                data-bs-toggle="tab"
-                                                data-bs-target="#past-tab-pane"
-                                                type="button"
-                                                role="tab"
-                                                aria-controls="past-tab-pane"
-                                                aria-selected="false">Past</button>
-                                    </li>
-                                </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active"
                                          id="ongoing-tab-pane"
@@ -81,69 +49,13 @@
                                                                 <td>{{ booking.place.parking_name }}, {{ booking.place.location_name }}</td>
                                                                 <td>Rs. {{ booking.place.price }}</td>
                                                                 <td>
-                                                                    <a href="#">View ticket</a>
+                                                                    <a href="/qr/{{ booking.id }}">View ticket</a>
                                                                 </td>
                                                             </tr>
                                                         {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade"
-                                         id="upcoming-tab-pane"
-                                         role="tabpanel"
-                                         aria-labelledby="upcoming-tab"
-                                         tabindex="0">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped">
-                                                <thead class="text-center">
-                                                    <tr class="fw-bold">
-                                                        <th>User</th>
-                                                        <th>Date</th>
-                                                        <th>Time</th>
-                                                        <th>Status</th>
-                                                        <th>Price</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="text-center">
-                                                    <tr>
-                                                        <td>username</td>
-                                                        <td>2024-02-23</td>
-                                                        <td>2PM - 3PM</td>
-                                                        <td>Parking Ongoing</td>
-                                                        <td>Rs.50</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade"
-                                         id="past-tab-pane"
-                                         role="tabpanel"
-                                         aria-labelledby="past-tab"
-                                         tabindex="0">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped">
-                                                <thead class="text-center">
-                                                    <tr class="fw-bold">
-                                                        <th>User</th>
-                                                        <th>Date</th>
-                                                        <th>Time</th>
-                                                        <th>Status</th>
-                                                        <th>Price</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="text-center">
-                                                    <tr>
-                                                        <td>username</td>
-                                                        <td>2024-02-23</td>
-                                                        <td>2PM - 3PM</td>
-                                                        <td>Parking Ongoing</td>
-                                                        <td>Rs.50</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </div>
                                 </div>

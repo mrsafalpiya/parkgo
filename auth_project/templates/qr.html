@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="qr-details">
+        <div id="qrcode"></div>
+        <div style="display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start">
+            <p style="font-weight: 600;
+                      margin-top: 16px;
+                      margin-bottom: 0;
+                      font-size: 20px">Booking Date & Time:</p>
+            <div style="display: flex; gap: 6px; align-items: center;">
+                <p style="font-size: 42px; font-weight: 600; margin-bottom: 0">{{ date }}</p>
+                <div style="display: flex; flex-direction: column;">
+                    <p style="margin-bottom: 0; font-size: 14px">{{ month }}</p>
+                    <p style="margin-top: -4px; margin-bottom: 0; font-size: 14px">{{ day }}</p>
+                </div>
+            </div>
+            <p style="font-size: 14px; margin-top: -12px;">{{ arriving_time }} - {{ exiting_time }}</p>
+            <div style="display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start">
+                <p style="font-weight: 600; margin-bottom: 0; font-size: 20px">Price:</p>
+                <p style="margin-top: -8px; margin-bottom: 0;">Rs. {{ price }} / hour</p>
+                <p style="margin-top: -5px; margin-bottom: 0;">
+                    Payment:
+                    {% if is_paid %}
+                        PAID
+                    {% else %}
+                        NOT PAID
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <p style="text-align: center;
+                  font-size: 12px;
+                  max-width: 400px;
+                  margin-top: 18px;
+                  margin-bottom: 4px">
+            All sales are final No-refunds or exchange possible. Please check the date & time of the parking.
+        </p>
+        <p style="font-weight: 700; font-size: 18px;">ENJOY YOUR PARKING AT PARKGO.</p>
+        <a class="btn btn-primary" href="/qr-print/{{ id }}">Download</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+            integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <!-- For QR Code generation -->
+    <script type="text/javascript">
+    new QRCode(document.getElementById("qrcode"), {
+        text: window.location.href,
+        width: 128,
+        height: 128,
+    });
+    </script>
+{% endblock %}

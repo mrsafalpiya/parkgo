@@ -17,6 +17,7 @@ from django.utils import timezone
 import humanize
 import requests
 
+
 # from .models import Users
 # Create your views here.
 def register_view(request):
@@ -383,3 +384,50 @@ def add_user_vehicle(request):
     new_vehicle.save()
 
     return JsonResponse({"success": True})
+
+
+def get_qr_details(booking_id):
+    booking_details = ParkingBooking.objects.get(id=booking_id)
+    arriving_at = booking_details.arriving_at
+    exiting_at = booking_details.exiting_at
+
+    date = arriving_at.strftime("%-d")
+    month = arriving_at.strftime("%B")
+    day = arriving_at.strftime("%A")
+    arriving_time = arriving_at.strftime("%I:%M%p")
+    exiting_time = exiting_at.strftime("%I:%M%p")
+    to_wash = booking_details.to_wash
+    is_paid = booking_details.is_paid
+
+    parking_place = ParkingPlace.objects.get(id=booking_details.place.id)
+    price = parking_place.price
+    wash_cost = parking_place.wash_cost
+
+    return {
+        "id": booking_details.id,
+        "date": date,
+        "month": month,
+        "day": day,
+        "arriving_time": arriving_time,
+        "exiting_time": exiting_time,
+        "price": price,
+        "wash_cost": wash_cost,
+        "to_wash": to_wash,
+        "is_paid": is_paid,
+    }
+
+
+def qr_details(request, booking_id):
+    return render(
+        request,
+        "qr.html",
+        get_qr_details(booking_id),
+    )
+
+
+def qr_details_print(request, booking_id):
+    return render(
+        request,
+        "qr-print.html",
+        get_qr_details(booking_id),
+    )

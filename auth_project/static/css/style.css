@@ -6,28 +6,30 @@
 }
 /* Ocean Blue */
 :root {
-  --b-0: #EAEBF2;
-  --b-10: #AAAEC8;
-  --b-20: #878CB1;
-  --b-30: #535B8F;
+  --b-0: #eaebf2;
+  --b-10: #aaaec8;
+  --b-20: #878cb1;
+  --b-30: #535b8f;
   --b-40: #303978;
   --b-50: #222854;
-  --b-60: #1D2349;
-/* Neutral */
-    --n-0: #FFFFFF;
-    --n-10: #CBCBCB;
-    --n-20: #A5A5A9;
-    --n-30: #787982;
-    --n-40: #43455A;
-    --n-50: #262942;
-    --n-60: #0E1129;
-  
+  --b-60: #1d2349;
+  /* Neutral */
+  --n-0: #ffffff;
+  --n-10: #cbcbcb;
+  --n-20: #a5a5a9;
+  --n-30: #787982;
+  --n-40: #43455a;
+  --n-50: #262942;
+  --n-60: #0e1129;
 }
 
-h4,h3, h5,h6{
- color: var(--b-40);
+h4,
+h3,
+h5,
+h6 {
+  color: var(--b-40);
 }
-.navbar{ 
+.navbar {
   background: var(--b-40);
 }
 header nav .container-fluid .navbar-brand img {
@@ -42,7 +44,7 @@ header nav .navbar-nav .nav-item .nav-link button {
   padding: 10px 16px;
   background: transparent;
   border: 1px solid var(--n-0);
-  color:var(--n-0);
+  color: var(--n-0);
   border-radius: 4px;
   transition: all 0.4s ease;
   /* box-shadow: -2px 2px 2px 1px rgba(23, 37, 167, 0.568); */
@@ -61,9 +63,9 @@ main .header {
   background: url("/static/image/banner.png");
   background-size: cover;
   min-height: 90vh;
-  position:relative;
+  position: relative;
   width: 100%;
-    object-fit: cover;
+  object-fit: cover;
   overflow-x: hidden;
 }
 /* .header::after{ 
@@ -88,24 +90,23 @@ main .header .header__intro h1 {
   font-size: 36px;
 }
 main .header .header__intro h1 span {
-  color:#a5bdeb;
+  color: #a5bdeb;
 }
 
 .header .header__intro p {
   font-size: 16px;
-  color:var(--n-0);
+  color: var(--n-0);
   line-height: 1.5;
   text-transform: capitalize;
 }
 .header .form {
   background-color: rgb(255 255 255 / 0.8);
-  box-shadow: 0 4px 10px -3px rgba(0,0,0,.12);
+  box-shadow: 0 4px 10px -3px rgba(0, 0, 0, 0.12);
   border-radius: 8px;
   padding: 32px 24px;
   width: 70%;
   margin: 0 auto;
 }
-
 
 .header .form .form__intro {
   color: var(--b-40);
@@ -130,11 +131,11 @@ main .header .header__intro h1 span {
   cursor: pointer;
   border: none;
 }
-.search-btn{
-  background: var(--b-40);   
+.search-btn {
+  background: var(--b-40);
 }
 .header .search__form .input__icons button .icon {
- color: var(--n-0); 
+  color: var(--n-0);
 }
 .header .search__form #btn_showpark {
   text-align: center;
@@ -144,16 +145,16 @@ main .header .header__intro h1 span {
   outline: none;
   border-radius: 4px;
   border: none;
-  transition:all 0.4s ease;
+  transition: all 0.4s ease;
   font-size: 16px;
   color: #fff;
 }
-.header .search__form #btn_showpark:hover{
+.header .search__form #btn_showpark:hover {
   background: var(--b-30);
 }
-.form-label{
+.form-label {
   color: var(--b-40);
-  font-size: 14px;  
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -174,31 +175,30 @@ main .header .header__intro h1 span {
   font-size: 16px;
   margin-bottom: 8px;
 }
-.modal .modal-dialog{
+.modal .modal-dialog {
   max-width: 740px;
-
 }
 
-.modal-content{
-    padding: 24px;
+.modal-content {
+  padding: 24px;
 }
 
-.modal.show .modal-dialog{
+.modal.show .modal-dialog {
   transform: translateY(30%);
 }
 
-.modal-title{
+.modal-title {
   font-size: 24px;
   color: var(--b-40);
   font-weight: 600;
 }
 
-tbody.modal-card tr td{
+tbody.modal-card tr td {
   background: transparent;
   box-shadow: none;
 }
 
-.table-row{
+.table-row {
   color: var(--n-20);
   font-weight: bold;
   font-size: 14px;
@@ -206,21 +206,26 @@ tbody.modal-card tr td{
   text-align: start;
 }
 
-
-
-.img_hold_table .img{
+.img_hold_table .img {
   position: relative;
   overflow: hidden;
   padding-top: 85%;
   height: 100%;
 }
-.header .search__form .modal .modal-dialog .modal-body table .img_hold_table img {
+.header
+  .search__form
+  .modal
+  .modal-dialog
+  .modal-body
+  table
+  .img_hold_table
+  img {
   /* height: 100px;
   width: 200px; */
   position: absolute;
   height: 100%;
-  width:100%;
-  inset:0;
+  width: 100%;
+  inset: 0;
   object-fit: cover;
 }
 .header .search__form .modal .modal-dialog .modal-body table p {
@@ -230,7 +235,7 @@ tbody.modal-card tr td{
   text-transform: capitalize;
 }
 
-.primary-button{
+.primary-button {
   background: var(--b-40);
   font-size: 14px;
   line-height: 1.57;
@@ -238,18 +243,17 @@ tbody.modal-card tr td{
   padding: 10px 16px;
   font-weight: normal;
   color: var(--n-0);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
-.primary-button:hover{
+.primary-button:hover {
   background: var(--b-30);
   color: var(--n-0);
-  
 }
 main .why_choose {
   padding: 80px 0px;
   overflow-x: hidden;
-  background-color:var(--n-0);
+  background-color: var(--n-0);
   margin-top: 20px;
 }
 main .why_choose .section__header {
@@ -258,46 +262,42 @@ main .why_choose .section__header {
   font-weight: bold;
 }
 main .why_choose .section__header {
-  color:var(--b-40);
+  color: var(--b-40);
 }
 .choose_row {
   margin-top: 48px;
 }
 
-@media(min-width:768px){
+@media (min-width: 768px) {
   .choose_row {
-  margin-top: 32px;
+    margin-top: 32px;
   }
 }
 
-
-.choose_card{
+.choose_card {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .choose_card {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-
-.choose_card .card-wrapper{
+.choose_card .card-wrapper {
   background: var(--n-0);
   border-radius: 8px;
   padding: 24px;
   box-shadow: 0px 13px 19px 0px rgba(0, 0, 0, 0.0705882353);
 }
 
-@media(max-width: 640px) {
+@media (max-width: 640px) {
   .choose_card {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
-
-
 
 /* .choose_row .icon_preholder {
   border: none;
@@ -334,7 +334,7 @@ main .why_choose .section__header {
   width: 100%;
   box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.1); */
 }
-.choose_row .card-title{
+.choose_row .card-title {
   font-size: 24px;
   margin-bottom: 12px;
   color: var(--b-40);
@@ -344,19 +344,16 @@ main .why_choose .section__header {
   /* background-color: #5f5d9c9f; */
 }
 
-.choose_row .card-body{
+.choose_row .card-body {
   border: none;
   padding: 0;
 }
 
-
 .choose_row .card .card-text {
   font-size: 14px;
   line-height: 1.57;
-  color:#555;
-
+  color: #555;
 }
-
 
 /*works section css */
 main .works {
@@ -466,15 +463,14 @@ footer {
   padding: 80px 0 40px 0;
 }
 
-.footer-logo{
+.footer-logo {
   margin-bottom: 2px;
 }
-.footer-logo img{
+.footer-logo img {
   max-width: 80px;
   width: 100%;
   line-height: 0;
 }
-
 
 footer .hrOne {
   border-top: 3px solid #5f5d9c;
@@ -643,7 +639,7 @@ main .signin .card .form .P_signin {
 }
 main .signin .card .form .P_signin a {
   text-decoration: none;
-  color:#a5bdeb;
+  color: #a5bdeb;
 }
 
 main .my__profile .side__bar {
@@ -703,7 +699,7 @@ main .my__profile .account__info .card .vehicle__info .vehicle_btns .btn_dlt {
   color: #fff;
 }
 main .my__profile .account__info .card .form .btn_submit_div .btn {
-  background-color:var(--b-40);
+  background-color: var(--b-40);
   padding: 10px 20px;
   color: #fff;
 
@@ -721,18 +717,18 @@ main .details__page {
   object-fit: cover;
 }
 
-.fa-user-large{
+.fa-user-large {
   color: var(--b-0);
 }
 
-.nav-link.dropdown-toggle{
+.nav-link.dropdown-toggle {
   color: var(--n-0);
   font-size: 14px;
   line-height: 1.57;
   font-weight: normal;
 }
 
-.nav-link.dropdown-toggle.show{
+.nav-link.dropdown-toggle.show {
   color: var(--n-0);
 }
 
@@ -804,8 +800,6 @@ main .details__page {
 }
 .details__page .left_row .order_btns .btn_complete {
   background-color: green;
-
-
 }
 main .payment__page {
   padding: 60px 0;
@@ -901,4 +895,13 @@ main .payment__page .card .term_con p:nth-child(3) {
     height: 360px;
     padding: 5px;
   }
+}
+
+.qr-details {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 72px;
 }

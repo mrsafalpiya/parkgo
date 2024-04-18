@@ -21,4 +21,6 @@ urlpatterns = [
     path("payment", views.payment, name="payment"),
     path("checkout", views.checkout, name="checkout"),
     path("add-vehicle", views.add_user_vehicle, name="payment"),
+    path("qr/<int:booking_id>", views.qr_details, name="qr"),
+    path("qr-print/<int:booking_id>", views.qr_details_print, name="qr-print"),
 ]
