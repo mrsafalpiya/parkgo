@@ -281,7 +281,7 @@
             </div>
         </div>
     </section>
-    <section class="testimonial">
+      <section class="testimonial">
         <div class="container">
           <h2 class="section__header text-center">What Our Client says?</h2>
           <div class="owl-theme owl-carousel mt-4">
@@ -301,7 +301,7 @@
                     <div class="col-4">
                       <div class="img_holder">
                         <img
-                          src="/assets/img/icons/man.png"
+                          src="{% static 'image/icons/man.png' %}"
                           alt=""
                           class="img-fluid"
                         />
@@ -331,7 +331,7 @@
                     <div class="col-4">
                       <div class="img_holder">
                         <img
-                          src="/assets/img/icons/man.png"
+                          src="{% static 'image/icons/man.png' %}"
                           alt=""
                           class="img-fluid"
                         />
@@ -359,5 +359,28 @@
     function recalculateTotalPrice(e) {
         document.getElementById("total-price").innerHTML = `Rs. ${(parseInt(document.getElementById("selected-place-price").innerHTML.slice(3)) * parseInt(e.target.value)).toFixed(2)}`;
     }
+    </script>
+    <!--JS for owlcarousel-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            margin: 10,
+            loop: true,
+        });
+    });
     </script>
 {% endblock %}
