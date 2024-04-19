@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate, update_session_auth
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import ParkingBooking, ParkingPlace, ParkingSpace, Vehicle
+from .models import ContactUs, ParkingBooking, ParkingPlace, ParkingSpace, Vehicle
 import json
 from django.core.serializers import (
     serialize,
@@ -185,7 +185,19 @@ def works_view(request):
 
 
 def contact_view(request):
-    return render(request, "contact.html")
+    if request.method == "GET":
+        return render(request, "contact.html")
+    else:
+        name = request.POST.get("name")
+        mobile_number = request.POST.get("mobile_number")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        new_contact_us_details = ContactUs(
+            name=name, mobile_number=mobile_number, email=email, message=message
+        )
+        new_contact_us_details.save()
+        return render(request, "contact.html", {"saved": True})
 
 
 @login_required(login_url="login")

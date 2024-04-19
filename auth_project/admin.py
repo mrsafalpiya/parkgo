@@ -3,7 +3,7 @@ from django.forms import ModelForm, IntegerField
 import itertools
 
 # Register your models here.
-from .models import ParkingBooking, ParkingPlace, Vehicle, ParkingSpace
+from .models import ContactUs, ParkingBooking, ParkingPlace, Vehicle, ParkingSpace
 
 
 class VehicleAdmin(admin.ModelAdmin):
@@ -62,3 +62,6 @@ class MarkerAdmin(CustomGeoWidgetAdmin):
             )
 
         return super().save_related(request, form, formsets, change)
+
+
+admin.site.register(ContactUs)

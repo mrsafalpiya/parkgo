@@ -67,3 +67,16 @@ class ParkingBooking(models.Model):
     to_wash = models.BooleanField()
 
     is_paid = models.BooleanField(default=False)
+
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=255)
+    mobile_number = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    message = models.TextField()
+
+    def __str__(self):
+        return f"{self.name} - {self.mobile_number}"
+
+    class Meta:
+        verbose_name_plural = "Contact us"
