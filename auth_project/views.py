@@ -30,13 +30,13 @@ def register_view(request):
         if pass1 != pass2:
             error = "Password and Confirm password does not match"
             context = {"errors": error}
-            return render(request, "signin.html", context=context)
+            return render(request, "signup.html", context=context)
         users = User.objects.create_user(uname, email, pass1)
         users.save()
         messages.success(request, "User registered successfully.")
         return redirect("login")
         print(uname, "is username")
-    return render(request, "signin.html")
+    return render(request, "signup.html")
 
 
 def login_view(request):
@@ -61,9 +61,9 @@ def login_view(request):
         # Authentication failed
         messages.error(request, "Invalid email or password")
         error = "Invalid email or password"
-        return render(request, "signup.html", {"error": error})
+        return render(request, "signin.html", {"error": error})
 
-    return render(request, "signup.html")
+    return render(request, "signin.html")
 
 
 def dashboard_view(request):

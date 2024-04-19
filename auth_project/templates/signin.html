@@ -1,101 +1,48 @@
 {% extends 'base.html' %}
 {% block content %}
-      <section class="signin">
+    <section class="signin">
         <div class="container">
-          <div class="card">
-            <div class="form">
-              <form  method="POST" action="{% url 'register' %}">
-                {% csrf_token %}
-          
-                <div class="form_intro text-center">
-                  <h3>You need to sign in or</h3>
-                  <p>Create an account to continue</p>
+            <div class="card">
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}<div class="alert alert-success" role="alert">{{ message }}</div>{% endif %}
+                        {% if message.tags == 'error' %}<div class="alert alert-danger" role="alert">{{ message }}</div>{% endif %}
+                    {% endfor %}
+                {% endif %}
+                <div class="form">
+                    <form method="POST" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        {% if form.username.errors %}<span class="text-danger">{{ form.username.errors }}</span>{% endif %}
+                        <div class="form_intro text-center">
+                            <h3>Welcome Back!</h3>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="email" class="col-sm-2 col-form-label">Email Address</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                       class="form-control"
+                                       name="email"
+                                       placeholder="someone@gmail.com" />
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password"
+                                       class="form-control"
+                                       name="password"
+                                       placeholder="password"
+                                       minlength="8" />
+                            </div>
+                        </div>
+                        <div class="form_btns">
+                            <div class="ms-auto">
+                                <button type="submit" class="btn_submit">Sign In</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-3 row">
-                  <label for="username" class="col-sm-2 col-form-label"
-                    >Username</label
-                  >
-                  <div class="col-sm-10">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="username"
-                      placeholder="username"
-                    />
-                    
-                  </div>
-                </div>
-      
-                <div class="mb-3 row">
-                  <label for="email" class="col-sm-2 col-form-label"
-                    >Email Address</label
-                  >
-                  <div class="col-sm-10">
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      placeholder="someone@gmail.com"
-                    />
-                  </div>
-                </div>
-                <div class="mb-3 row">
-                  <label for="password1" class="col-sm-2 col-form-label"
-                    >Password</label
-                  >
-                  <div class="col-sm-10">
-                    <input
-                      type="password"
-                      class="form-control"
-                      name="password1"
-                      placeholder="password"
-                    />
-                  </div>
-                </div>
-            
-                <div class="mb-3 row">
-                  <label for="password2" class="col-sm-2 col-form-label"
-                    >Password Confirm</label
-                  >
-                  <div class="col-sm-10">
-                    <input
-                      type="password"
-                      class="form-control"
-                      name="password2"
-                      placeholder="password"
-                    />
-                  </div>
-                </div>
-                <div class="mb-3 row">
-                  <label
-                    for="password"
-                    class="col-sm-2 d-md-block d-sm-none col-form-label"
-                  ></label>
-                  <div class="col-sm-10">
-                    <p>
-                      Please chooose a secure password (atleast 8 characters)
-                    </p>
-                    <p>
-                      By continuing, you agree to the
-                      <a href="/terms">Park & Go Terms Of Use & Privacy Policy</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="form_btns">
-                  <div style="margin-left: auto;">
-                    <button type="submit" class="btn_submit">
-                      Create Account
-                    </button>
-                  </div>
-                </div>
-              </form>
-              <p class="mt-4 P_signin">
-                Already Parking With Us? <a href="/login">SIGN IN</a>
-              </p>
             </div>
-          </div>
         </div>
-      </section>
-
-{% endblock %}      
-   
+    </section>
+{% endblock %}
