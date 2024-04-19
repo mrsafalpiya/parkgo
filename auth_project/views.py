@@ -55,7 +55,7 @@ def login_view(request):
             if user is not None:
                 # Authentication successful, login the user
                 login(request, user)
-                messages.success(request, "Welcome to the ParkGo!.")
+                messages.success(request, "Welcome to the Park & Go!.")
                 return redirect("dashboard")
 
         # Authentication failed
@@ -362,7 +362,7 @@ def checkout(request):
                 "website_url": "http://127.0.0.1:8000",
                 "amount": str(purchase_cost * 100),  # Khalti accepts amount in paisa
                 "purchase_order_id": "-".join(booking_ids),
-                "purchase_order_name": "ParkGO",
+                "purchase_order_name": "Park & Go",
                 "customer_info": {
                     "name": request.user.username,
                     "email": request.user.email,
