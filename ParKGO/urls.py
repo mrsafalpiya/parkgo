@@ -18,8 +18,8 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-admin.site.site_title = "Park and Go site admin"
-admin.site.site_header = "Park and Go administration"
+admin.site.site_title = "Park & Go site admin"
+admin.site.site_header = "Park & Go administration"
 admin.site.index_title = "Site administration"
 
 urlpatterns = [
