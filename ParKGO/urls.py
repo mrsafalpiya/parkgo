@@ -18,6 +18,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+admin.site.site_title = "ParkGO site admin"
+admin.site.site_header = "ParkGO administration"
+admin.site.index_title = "Site administration"
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("auth_project.urls")),
