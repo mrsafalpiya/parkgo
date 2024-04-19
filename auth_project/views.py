@@ -133,36 +133,36 @@ def details_view(request):
 
 
 @login_required(login_url="login")
-def profile_view(request):
-    user = request.user
-
-    return render(request, "profile.html")
-
-
-@login_required(login_url="login")
 def profile_update(request):
     if request.method == "POST":
-        error = None
         user = request.user
         uname = request.POST.get("username")
         email = request.POST.get("email")
-        pass1 = request.POST.get("password1")
-        pass2 = request.POST.get("password2")
+        pass1 = request.POST.get("pass1")
+        pass2 = request.POST.get("pass2")
         if pass1 != pass2:
-            error = "Password and Confirm password does not match"
-            context = {"errors": error}
-            return render(request, "profile_update.html", context=context)
+            messages.error(request, "Password and Confirm password does not match")
+            return render(
+                request,
+                "profile_update.html",
+                {"username": user.username, "email": user.email},
+            )
         user.username = uname
         user.email = email
 
         # Check if a new password is provided
         if pass1:
             user.set_password(pass1)
+            user.save()
             update_session_auth_hash(request, user)  # Update session to prevent logout
         user.save()
         messages.success(request, "User details updated successfully.")
         return redirect("profile")
-    return render(request, "profile_update.html")
+    return render(
+        request,
+        "profile_update.html",
+        {"username": request.user.username, "email": request.user.email},
+    )
 
 
 @login_required(login_url="login")

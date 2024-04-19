@@ -1,92 +1,85 @@
 {% extends 'base.html' %}
 {% block content %}
-      <section class="my__profile">
+    <section class="my__profile">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-2 col-md-4 col-12 side__bar d-md-flex d-none">
-              <ul>
-                <li><a href="{% url 'profile'%}">My Profile</a></li>
-                <li><a href="{% url 'addvehicle' %}">Add Vehicles</a></li>
-                <li><a href="{% url 'booking' %}">Bookings Made</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-10 col-md-8 col-12">
-              <div>
-                <div class="account__info">
-                  <div class="form">
-                    <form action="{% url 'profile_update' %}" method="POST">
-                        {% csrf_token %}
-                      <h3>Account Information</h3>
-                      <div class="mb-4 row">
-                        <label for="username" class="col-sm-2 col-form-label"
-                          >Username</label
-                        >
-                        <div class="col-sm-10">
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="username"
-                            placeholder="username"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="mb-4 row">
-                        <label for="email" class="col-sm-2 col-form-label"
-                          >Email</label
-                        >
-                        <div class="col-sm-10">
-                          <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            placeholder="Enter Your Surname"
-                          />
-                        </div>
-                      </div>
-                      <div class="mb-4 row">
-                        <label
-                          for="pass1"
-                          class="col-sm-2 col-form-label"
-                          >Password</label
-                        >
-                        <div class="col-sm-10">
-                          <input
-                            type="password"
-                            class="form-control"
-                            name="pass1"
-                            placeholder="password"
-                          />
-                        </div>
-                      </div>
-                      <div class="mb-4 row">
-                        <label for="pass2" class="col-sm-2 col-form-label"
-                          >Confirm Password</label
-                        >
-                        <div class="col-sm-10">
-                          <input
-                            type="password"
-                            class="form-control"
-                            name="pass2"
-                            placeholder="password"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="form_btns">
-                        <div>
-                          <button type="reset" class="btn_reset"> Cancel</button>
-                        </div>
-                        <div>
-                          <button type="submit" class="btn_submit"> Update </button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-12 side__bar d-md-flex d-none">
+                    <ul>
+                        <li>
+                            <a href="{% url 'profile' %}">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'addvehicle' %}">Add Vehicles</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'booking' %}">Bookings Made</a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
+                <div class="col-lg-10 col-md-8 col-12 mt-4">
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tags == 'success' %}<div class="alert alert-success" role="alert">{{ message }}</div>{% endif %}
+                            {% if message.tags == 'error' %}<div class="alert alert-danger" role="alert">{{ message }}</div>{% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <div>
+                        <div class="account__info">
+                            <div class="form">
+                                <form action="{% url 'profile' %}" method="POST">
+                                    {% csrf_token %}
+                                    <h3>Account Information</h3>
+                                    <div class="mb-4 row">
+                                        <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                        <div class="col-sm-10">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   name="username"
+                                                   placeholder="username"
+                                                   value="{{ username }}" />
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email"
+                                                   class="form-control"
+                                                   name="email"
+                                                   placeholder="Enter Your Surname"
+                                                   value="{{ email }}" />
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <label for="pass1" class="col-sm-2 col-form-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password"
+                                                   class="form-control"
+                                                   name="pass1"
+                                                   placeholder="password"
+                                                   minlength="8" />
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <label for="pass2" class="col-sm-2 col-form-label">Confirm Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password"
+                                                   class="form-control"
+                                                   name="pass2"
+                                                   placeholder="password"
+                                                   minlength="8" />
+                                        </div>
+                                    </div>
+                                    <div class="form_btns">
+                                        <div style="margin-left: auto !important;">
+                                            <button type="submit" class="btn_reset">Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-   {% endblock %}
+    </section>
+{% endblock %}
